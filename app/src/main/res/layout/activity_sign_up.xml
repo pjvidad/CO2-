@@ -64,6 +64,7 @@
                 android:layout_height="50dp"
                 android:text="Log-in"
                 android:textColor="@android:color/white"
+                android:backgroundTint="@null"
                 android:background="@drawable/btn_bg"
                 android:layout_marginBottom="20dp"/>
 
