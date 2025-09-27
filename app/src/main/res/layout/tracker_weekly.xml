@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="Today"
             android:textColor="#fff"
-            android:backgroundTint="#6FCF97"
+            android:backgroundTint="#1C2B48"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:text="Week"
             android:textColor="#fff"
-            android:backgroundTint="#1C2B48"
+            android:backgroundTint="#6FCF97"
             android:layout_marginEnd="8dp"/>
 
         <Button
