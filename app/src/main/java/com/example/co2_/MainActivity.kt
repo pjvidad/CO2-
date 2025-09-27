@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Default fragment
-        replaceFragment(HomeFragment())
+        //replaceFragment(HomeFragment())
 
         // Nav button listeners
         //findViewById<ImageButton>(R.id.navHome).setOnClickListener {
@@ -38,4 +38,4 @@ class MainActivity : AppCompatActivity() {
          //   .replace(R.id.fragmentContainer, fragment)
        //     .commit()
     }
-}
+//}
