@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">CO2-</string>
+    <string name="app_name" translatable="false">CO2-</string>
+    <string name="welcome_btn" translatable="false">Get Started</string>
 </resources>
