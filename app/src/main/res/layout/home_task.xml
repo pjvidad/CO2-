@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="121dp"
+        android:layout_height="98dp"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="44dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username!"
+        android:textColor="#2E4057"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="35sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <TextView
+        android:id="@+id/fixedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome back,"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <LinearLayout
+        android:layout_width="221dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="92dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="157dp">
+
+        <Button
+            android:id="@+id/taskbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#CAFFB9"
+            android:text="Task"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="0dp" />
+
+        <Button
+            android:id="@+id/eventsbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2E4057"
+            android:text="Events"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TaskOrEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Today's Task"
+        android:textSize="23sp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="97dp"
+        android:layout_height="76dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="264dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="216dp"
+        android:layout_height="76dp"
+        android:background="@color/text_view_background_color"
+        android:backgroundTint="#AAD7A4"
+        android:padding="8dp"
+        android:text="Read and take a quiz on the app's library"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <Button
+        android:id="@+id/DoneButton"
+        android:layout_width="313dp"
+        android:layout_height="35dp"
+        android:backgroundTint="#AAD7A4"
+        android:text="Done"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="340dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="216dp"
+        android:layout_height="76dp"
+        android:background="@color/text_view_background_color"
+        android:backgroundTint="#AAD7A4"
+        android:padding="8dp"
+        android:text="Declutter e-waste in your house."
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="97dp"
+        android:layout_height="76dp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="397dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="313dp"
+        android:layout_height="41dp"
+        android:backgroundTint="#AAD7A4"
+        android:text="Done"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="473dp" />
+
+    <Button
+        android:id="@+id/doneButton2"
+        android:layout_width="313dp"
+        android:layout_height="41dp"
+        android:text="Done"
+        android:backgroundTint="#AAD7A4"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="606dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="216dp"
+        android:layout_height="76dp"
+        android:background="@color/text_view_background_color"
+        android:padding="8dp"
+        android:text="Walk 10,000 steps today"
+        android:backgroundTint="#AAD7A4"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="530dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="97dp"
+        android:layout_height="76dp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="530dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="409dp"
+        android:layout_height="82dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="688dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
