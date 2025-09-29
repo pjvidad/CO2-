@@ -1,196 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F5F5F5"
-    android:padding="16dp">
+    android:background="#F5F5F5">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Carbon Footprint"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"/>
-
-    <!-- Today's Impact -->
-    <TextView
-        android:id="@+id/todayImpact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Today's Impact"
-        android:textSize="14sp"
-        android:textColor="#444"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/impactValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8.5 kg CO2"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="4dp"/>
-
-    <TextView
-        android:id="@+id/impactComparison"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12% below yesterday"
-        android:textSize="12sp"
-        android:textColor="#4CAF50"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="12dp"/>
-
-    <!-- Add Button -->
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#1C2B48"
-        android:text="+ Add"
-        android:textColor="#fff"
-        android:textSize="14sp" />
-
-    <!-- Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="16dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today"
-            android:textColor="#fff"
-            android:backgroundTint="#1C2B48"
-            android:layout_marginEnd="8dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Week"
-            android:textColor="#fff"
-            android:backgroundTint="#1C2B48"
-            android:layout_marginEnd="8dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Month"
-            android:textColor="#fff"
-            android:backgroundTint="#6FCF97"
-            android:padding="8dp"/>
-    </LinearLayout>
-    <!-- Monthly Goal Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/card_background"
+    <!-- Scrollable content -->
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:padding="16dp"
-        android:layout_margin="16dp"
-        android:elevation="2dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monthly Goal"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Progress numbers -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="">
+            android:orientation="vertical">
 
+            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="124.8 kg used"
-                android:textSize="12sp"
-                android:textColor="#666666"/>
+                android:text="My Carbon Footprint"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp" />
 
+            <!-- Today's Impact -->
             <TextView
+                android:id="@+id/todayImpact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="150 kg goal"
+                android:text="Today's Impact"
+                android:textSize="14sp"
+                android:textColor="#444"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/impactValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8.5 kg CO2"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/impactComparison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12% below yesterday"
                 android:textSize="12sp"
-                android:textColor="#666666"/>
+                android:textColor="#4CAF50"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Add Button -->
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#1C2B48"
+                android:text="+ Add"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <!-- Tabs -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    android:textColor="#fff"
+                    android:backgroundTint="#1C2B48"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Week"
+                    android:textColor="#fff"
+                    android:backgroundTint="#1C2B48"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Month"
+                    android:textColor="#fff"
+                    android:backgroundTint="#6FCF97"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- Monthly Goal Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="16dp"
+                android:layout_margin="16dp"
+                android:elevation="2dp">
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monthly Goal"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Progress numbers -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="124.8 kg used"
+                        android:textSize="12sp"
+                        android:textColor="#666666" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="150 kg goal"
+                        android:textSize="12sp"
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <!-- Progress bar -->
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:progress="83"
+                    android:max="100"
+                    android:progressTint="#1C2B48"
+                    android:progressBackgroundTint="#D0EFD4"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Remaining value -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25.23 kg"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="remaining this month"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:textColor="#666666"
+                    android:layout_marginTop="4dp" />
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Keep Going + Mascot -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keep Going!"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/el_hewooo"
+                    android:layout_gravity="center"
+                    android:contentDescription="Motivational mascot" />
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Progress bar -->
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="12dp"
-            android:progress="83"
-            android:max="100"
-            android:progressTint="#1C2B48"
-            android:progressBackgroundTint="#D0EFD4"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="12dp"/>
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bg_navbar"
+        android:padding="12dp"
+        android:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Remaining value -->
-        <TextView
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="25.23 kg"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="#000000"/>
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Home"
+            app:tint="#1C2B48" />
 
-
-
-        <TextView
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/navBook"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="remaining this month"
-            android:textSize="12sp"
-            android:gravity="center"
-            android:textColor="#666666"
-            android:layout_marginTop="4dp"/>
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_book"
+            android:contentDescription="Book"
+            app:tint="#1C2B48" />
 
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#EEEEEE"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- Keep Going + Mascot -->
-        <TextView
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/navCalc"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Keep Going!"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_calculator"
+            android:contentDescription="Calculator"
+            app:tint="#1C2B48" />
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/el_hewooo"
-            android:layout_gravity="center"
-            android:contentDescription="Motivational mascot"/>
-
+        <ImageButton
+            android:id="@+id/navBag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_shop"
+            android:contentDescription="Bag"
+            app:tint="#1C2B48" />
     </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

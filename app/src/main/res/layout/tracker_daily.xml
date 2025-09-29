@@ -1,257 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F5F5F5"
-    android:padding="16dp">
+    android:background="#F5F5F5">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Carbon Footprint"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:marginBottom="8dp"/>
+    <!-- Scrollable content -->
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Today's Impact -->
-    <TextView
-        android:id="@+id/todayImpact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Today's Impact"
-        android:textSize="14sp"
-        android:textColor="#444"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/impactValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8.5 kg CO2"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:layout_gravity="center_horizontal"
-        android:marginTop="4dp"/>
-
-    <TextView
-        android:id="@+id/impactComparison"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12% below yesterday"
-        android:textSize="12sp"
-        android:textColor="#4CAF50"
-        android:layout_gravity="center_horizontal"
-        android:marginBottom="12dp"/>
-
-    <!-- Add Button -->
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#1C2B48"
-        android:shape="oval"
-        android:text="+ Add"
-        android:textColor="#fff"
-        android:textSize="14sp" />
-
-    <!-- Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="16dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today"
-            android:textColor="#fff"
-            android:backgroundTint="#6FCF97"
-            android:layout_marginEnd="8dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Week"
-            android:textColor="#fff"
-            android:backgroundTint="#1C2B48"
-            android:layout_marginEnd="8dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Month"
-            android:textColor="#fff"
-            android:backgroundTint="#1C2B48"/>
-    </LinearLayout>
-
-    <!-- Breakdown Header -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Today's Breakdown"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Breakdown List -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#FFFFFF"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:elevation="2dp"
-        android:clipToPadding="false">
-
-        <!-- Transportation-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
-            android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_car"
-                android:background="#AFFFBA"
-                android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Transport"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
-
+            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
-        </LinearLayout>
+                android:text="My Carbon Footprint"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Energy -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
-            android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_energy"
-                android:background="#AFFFBA"
-                android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
+            <!-- Today's Impact -->
+            <TextView
+                android:id="@+id/todayImpact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's Impact"
+                android:textSize="14sp"
+                android:textColor="#444"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
-                android:layout_width="0dp"
+                android:id="@+id/impactValue"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Energy"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:text="8.5 kg CO2"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp" />
 
+            <TextView
+                android:id="@+id/impactComparison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12% below yesterday"
+                android:textSize="12sp"
+                android:textColor="#4CAF50"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Add Button -->
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#1C2B48"
+                android:text="+ Add"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <!-- Tabs -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    android:textColor="#fff"
+                    android:backgroundTint="#6FCF97"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Week"
+                    android:textColor="#fff"
+                    android:backgroundTint="#1C2B48"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Month"
+                    android:textColor="#fff"
+                    android:backgroundTint="#1C2B48" />
+            </LinearLayout>
+
+            <!-- Breakdown Header -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:text="Today's Breakdown"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Breakdown List -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="2dp">
+
+                <!-- Transport -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="#E5FFD9"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_car"
+                        android:background="#AFFFBA"
+                        android:padding="8dp"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Transport"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3.2 kg"
+                        android:textSize="16sp"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <!-- Repeat for Energy, Food, Shopping ... -->
+
+            </LinearLayout>
         </LinearLayout>
-
-        <!-- Food -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
-            android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_food"
-                android:background="#AFFFBA"
-                android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Food"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
-        </LinearLayout>
-
-        <!-- Shopping-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
-            android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_shopping"
-                android:background="#AFFFBA"
-                android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Shopping"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
-        </LinearLayout>
-
-
-
-    </LinearLayout>
+    </ScrollView>
 
     <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bg_navbar"
+        android:padding="12dp"
+        android:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <ImageButton
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Home"
+            app:tint="#1C2B48" />
 
-</LinearLayout>
+        <ImageButton
+            android:id="@+id/navBook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_book"
+            android:contentDescription="Book"
+            app:tint="#1C2B48" />
+
+        <ImageButton
+            android:id="@+id/navCalc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_calculator"
+            android:contentDescription="Calculator"
+            app:tint="#1C2B48" />
+
+        <ImageButton
+            android:id="@+id/navBag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_shop"
+            android:contentDescription="Bag"
+            app:tint="#1C2B48" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
