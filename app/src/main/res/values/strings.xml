@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    /Welcome and Sign in Strings
     <string name="app_name" translatable="false">CO2-</string>
     <string name="welcome_btn" translatable="false">Get Started</string>
     <string name="sign_in_btn" translatable="false">Sign In</string>
@@ -16,5 +17,27 @@
     <string name="bookTitle1" translatable="false">Book Title 1</string>
     <string name="bookTitle2" translatable="false">Book Title 2</string>
     <string name="bookTitle3" translatable="false">Book Title 3</string>
+    /Tracker Strings
+    <string name="tracker_today" translatable="false">Today</string>
+    <string name="tracker_week" translatable="false">Week</string>
+    <string name="tracker_month" translatable="false">Month</string>
+    <string name="tracker_add" translatable="false">+ Add</string>
+    <string name="tracker_today_impact" translatable="false">Today\'s Impact</string>
+    <string name="tracker_impact_value" translatable="false">8.5 kg CO2</string>
+    <string name="tracker_impact_comparison" translatable="false">12% below yesterday</string>
+    <string name="tracker_weekly_title" translatable="false">This Week</string>
+    <string name="tracker_weekly_average" translatable="false">Weekly Average: 8.0 kg CO2/day</string>
+    <string name="tracker_title" translatable="false">My Carbon Footprint</string>
+    <string name="tracker_today_breakdown" translatable="false">Today\'s Breakdown</string>
+    <string name="tracker_transport" translatable="false">Transport</string>
+    <string name="tracker_food" translatable="false">Food</string>
+    <string name="tracker_shopping" translatable="false">Shopping</string>
+    <string name="tracker_energy" translatable="false">Energy</string>
+    <string name="tracker_transport_value" translatable="false">3.2 kg</string>
+    <string name="tracker_food_value" translatable="false">3.2 kg</string>
+    <string name="tracker_shopping_value" translatable="false">3.2 kg</string>
+    <string name="tracker_energy_value" translatable="false">3.2 kg</string>
+
+    
 
 </resources>

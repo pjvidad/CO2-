@@ -2,50 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#F5F5F5"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <!-- Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Carbon Footprint"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:marginBottom="8dp"/>
+        android:fontFamily="@font/montserrat_bold"
+
+        android:text="@string/tracker_title"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <!-- Today's Impact -->
     <TextView
         android:id="@+id/todayImpact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today's Impact"
-        android:textSize="14sp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_today_impact"
         android:textColor="#444"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/impactValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8.5 kg CO2"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#000"
         android:layout_gravity="center_horizontal"
-        android:marginTop="4dp"/>
+        android:fontFamily="@font/montserrat_black"
+
+        android:text="@string/tracker_impact_value"
+        android:textColor="#000"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/impactComparison"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12% below yesterday"
-        android:textSize="12sp"
-        android:textColor="#4CAF50"
         android:layout_gravity="center_horizontal"
-        android:marginBottom="12dp"/>
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_impact_comparison"
+        android:textColor="#4CAF50"
+        android:textSize="12sp" />
 
     <!-- Add Button -->
     <Button
@@ -54,8 +56,9 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="#1C2B48"
+        android:fontFamily="@font/montserrat"
         android:shape="oval"
-        android:text="+ Add"
+        android:text="@string/tracker_add"
         android:textColor="#fff"
         android:textSize="14sp" />
 
@@ -63,190 +66,204 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:layout_marginTop="16dp">
+        android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Today"
-            android:textColor="#fff"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="#6FCF97"
-            android:layout_marginEnd="8dp"/>
+            android:fontFamily="@font/montserrat"
+            android:text="@string/tracker_today"
+            android:textColor="#fff"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Week"
-            android:textColor="#fff"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="#1C2B48"
-            android:layout_marginEnd="8dp"/>
+            android:fontFamily="@font/montserrat"
+            android:text="@string/tracker_week"
+            android:textColor="#fff"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Month"
+            android:backgroundTint="#1C2B48"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/tracker_month"
             android:textColor="#fff"
-            android:backgroundTint="#1C2B48"/>
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <!-- Breakdown Header -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today's Breakdown"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_today_breakdown"
+        android:textStyle="bold" />
 
     <!-- Breakdown List -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#FFFFFF"
-        android:padding="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
+        android:clipToPadding="false"
         android:elevation="2dp"
-        android:clipToPadding="false">
+        android:orientation="vertical"
+        android:padding="12dp">
 
         <!-- Transportation-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
+            android:layout_marginBottom="8dp"
             android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_car"
+                android:layout_marginEnd="12dp"
                 android:background="#AFFFBA"
                 android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
+                android:src="@drawable/ic_car" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Transport"
                 android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_transport"
+                android:textColor="#000"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_transport_value"
+                android:textColor="#000"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <!-- Energy -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
+            android:layout_marginBottom="8dp"
             android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_energy"
+                android:layout_marginEnd="12dp"
                 android:background="#AFFFBA"
                 android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
+                android:src="@drawable/ic_energy" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Energy"
                 android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_energy"
+                android:textColor="#000"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_energy_value"
+                android:textColor="#000"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <!-- Food -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
+            android:layout_marginBottom="8dp"
             android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_food"
+                android:layout_marginEnd="12dp"
                 android:background="#AFFFBA"
                 android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
+                android:src="@drawable/ic_food" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Food"
                 android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_food"
+                android:textColor="#000"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_food_value"
+                android:textColor="#000"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <!-- Shopping-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp"
+            android:layout_marginBottom="8dp"
             android:background="#E5FFD9"
-            android:layout_marginBottom="8dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_shopping"
+                android:layout_marginEnd="12dp"
                 android:background="#AFFFBA"
                 android:padding="8dp"
-                android:layout_marginEnd="12dp"/>
+                android:src="@drawable/ic_shopping" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Shopping"
                 android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_shopping"
+                android:textColor="#000"
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.2 kg"
-                android:textSize="16sp"
-                android:textColor="#000"/>
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tracker_energy_value"
+                android:textColor="#000"
+                android:textSize="16sp" />
         </LinearLayout>
-
 
 
     </LinearLayout>
