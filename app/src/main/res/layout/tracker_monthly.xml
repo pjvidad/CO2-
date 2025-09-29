@@ -154,6 +154,8 @@
             android:gravity="center"
             android:textColor="#000000"/>
 
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -185,9 +187,10 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/mascot"
+            android:src="@drawable/el_hewooo"
             android:layout_gravity="center"
             android:contentDescription="Motivational mascot"/>
+
     </LinearLayout>
 
 </LinearLayout>

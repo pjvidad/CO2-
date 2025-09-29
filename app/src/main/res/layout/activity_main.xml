@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_bag"
+            android:src="@drawable/ic_shop"
             android:tint="#1C2B48"
             android:contentDescription="Bag" />
     </LinearLayout>
