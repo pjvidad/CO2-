@@ -37,6 +37,14 @@
     <string name="tracker_food_value" translatable="false">3.2 kg</string>
     <string name="tracker_shopping_value" translatable="false">3.2 kg</string>
     <string name="tracker_energy_value" translatable="false">3.2 kg</string>
+    <string name="tracker_monthly_goal" translatable="false">Monthly Goal</string>
+    <string name="tracker_monthly_value" translatable="false">124.8 kg used</string>
+    <string name="tracker_monthly_goal_value" translatable="false">150 kg goal</string>
+    <string name="tracker_monthly_remaining_value" translatable="false">25.23 kg</string>
+    <string name="tracker_monthly_remaining_text" translatable="false">remaining this month</string>
+    <string name="tracker_keep_going" translatable="false">Keep Going!</string>
+    <string name="tracker_mascot" translatable="false">EL the Motivational Mascot</string>
+
 
     /NavBar Strings
     <string name="nav_home" translatable="false">Home</string>
