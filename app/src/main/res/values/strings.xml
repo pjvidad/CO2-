@@ -44,6 +44,22 @@
     <string name="tracker_monthly_remaining_text" translatable="false">remaining this month</string>
     <string name="tracker_keep_going" translatable="false">Keep Going!</string>
     <string name="tracker_mascot" translatable="false">EL the Motivational Mascot</string>
+    <string name="tracker_mon" translatable="false">Mon</string>
+    <string name="tracker_tue" translatable="false">Tue</string>
+    <string name="tracker_wed" translatable="false">Wed</string>
+    <string name="tracker_thu" translatable="false">Thu</string>
+    <string name="tracker_fri" translatable="false">Fri</string>
+    <string name="tracker_sat" translatable="false">Sat</string>
+    <string name="tracker_sun" translatable="false">Sun</string>
+    <string name="tracker_mon_value" translatable="false">7.2 kg</string>
+    <string name="tracker_tue_value" translatable="false">7.2 kg</string>
+    <string name="tracker_wed_value" translatable="false">7.2 kg</string>
+    <string name="tracker_thu_value" translatable="false">7.2 kg</string>
+    <string name="tracker_fri_value" translatable="false">7.2 kg</string>
+    <string name="tracker_sat_value" translatable="false">7.2 kg</string>
+    <string name="tracker_sun_value" translatable="false">7.2 kg</string>
+
+
 
 
     /NavBar Strings
