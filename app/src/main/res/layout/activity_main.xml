@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5">
@@ -18,7 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/bg_navbar"
         android:elevation="6dp"
         android:gravity="center"
@@ -28,41 +31,45 @@
         <ImageButton
             android:id="@+id/navHome"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:contentDescription="Home"
+            android:contentDescription="@string/nav_home"
             android:src="@drawable/ic_home"
-            app:tint="#1C2B48" />
+            app:tint="#1C2B48"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/navBook"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:contentDescription="Book"
+            android:contentDescription="@string/nav_book"
             android:src="@drawable/ic_book"
-            app:tint="#1C2B48" />
+            app:tint="#1C2B48"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/navCalc"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:contentDescription="Calculator"
+            android:contentDescription="@string/nav_calc"
             android:src="@drawable/ic_calculator"
-            app:tint="#1C2B48" />
+            app:tint="#1C2B48"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/navBag"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:contentDescription="Bag"
+            android:contentDescription="@string/nav_bag"
             android:src="@drawable/ic_shop"
-            app:tint="#1C2B48" />
+            app:tint="#1C2B48"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 </RelativeLayout>
