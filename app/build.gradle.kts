@@ -45,7 +45,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.mpandroidchart)
 
     // Add these new ones for more UI components:
     implementation("androidx.viewpager2:viewpager2:1.0.0")
