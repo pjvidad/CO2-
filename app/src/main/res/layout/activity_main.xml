@@ -18,11 +18,12 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_navbar"
-        android:padding="12dp"
-        android:elevation="6dp">
+        android:elevation="6dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
 
         <ImageButton
             android:id="@+id/navHome"
@@ -30,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_home"
             android:contentDescription="Home"
+            android:src="@drawable/ic_home"
             app:tint="#1C2B48" />
 
         <ImageButton
@@ -40,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_book"
             android:contentDescription="Book"
+            android:src="@drawable/ic_book"
             app:tint="#1C2B48" />
 
         <ImageButton
@@ -50,8 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_calculator"
             android:contentDescription="Calculator"
+            android:src="@drawable/ic_calculator"
             app:tint="#1C2B48" />
 
         <ImageButton
@@ -60,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_shop"
             android:contentDescription="Bag"
+            android:src="@drawable/ic_shop"
             app:tint="#1C2B48" />
     </LinearLayout>
 </RelativeLayout>
