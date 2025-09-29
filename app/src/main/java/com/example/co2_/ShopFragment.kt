@@ -10,6 +10,6 @@ class ShopFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.redeem_shop, container, false)
+        return inflater.inflate(R.layout.shop_customize, container, false)
     }
 }
