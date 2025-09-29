@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,18 +10,19 @@
         android:id="@+id/pointsCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_margin="16dp"
         android:background="@drawable/points_card_bg"
+        android:elevation="4dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="12dp"
-        android:elevation="4dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:text="My Points\n🪙 99"
             android:textColor="#FFFFFF"
@@ -34,11 +35,11 @@
         android:id="@+id/avatarContainer"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
         android:layout_margin="16dp"
         android:background="@drawable/avatar_bg"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/characterAvatar"
@@ -54,49 +55,53 @@
         android:id="@+id/buttonSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pointsCard"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:gravity="center">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pointsCard">
 
         <Button
             android:id="@+id/btnDiscovery"
             android:layout_width="120dp"
             android:layout_height="48dp"
             android:layout_marginEnd="12dp"
-            android:backgroundTint="#5D4037"
-            android:text="Discovery"
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
+            android:backgroundTint="#1C2B48"
+            android:elevation="2dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Redeem"
             android:textAllCaps="false"
-            android:elevation="2dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/btnCustomize"
             android:layout_width="120dp"
             android:layout_height="48dp"
-            android:backgroundTint="#81C784"
+            android:backgroundTint="#CAFFB9"
+            android:elevation="2dp"
+            android:fontFamily="@font/montserrat_medium"
             android:text="Customize"
-            android:textColor="#000000"
-            android:textSize="13sp"
             android:textAllCaps="false"
-            android:elevation="2dp" />
+            android:textColor="#000000"
+            android:textSize="13sp" />
     </LinearLayout>
 
-    <!-- Main Character Container (Center) - Large Display -->
+    <!-- Main Character Container (Center) - Flexible Space -->
     <FrameLayout
         android:id="@+id/characterContainer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_below="@id/buttonSection"
-        android:layout_above="@id/clothingOptions"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:minHeight="200dp">
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/clothingOptions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSection"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/mainCharacter"
@@ -108,158 +113,177 @@
             android:src="@android:drawable/ic_menu_gallery" />
     </FrameLayout>
 
-    <!-- Bottom Clothing Options (6 items in 2 rows) -->
-    <LinearLayout
+    <!-- Bottom Clothing Options Panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clothingOptions"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/clothing_panel_bg"
-        android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:gravity="center"
+        android:background="@drawable/bg_navbar"
         android:elevation="4dp"
-        android:minHeight="180dp">
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <!-- First Row - 3 items -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+        <!-- Guideline for centering -->
 
-            <!-- Clothing Item 1 -->
-            <FrameLayout
-                android:id="@+id/clothingFrame1"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_margin="6dp"
-                android:background="@drawable/clothing_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+        <!-- Row 1 -->
+        <!-- Clothing Item 1 (Left) -->
+        <FrameLayout
+            android:id="@+id/clothingFrame1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/clothing_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@id/clothingFrame2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/clothing1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@android:drawable/ic_menu_gallery" />
-            </FrameLayout>
+            <ImageView
+                android:id="@+id/clothing1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery" />
+        </FrameLayout>
 
-            <!-- Clothing Item 2 -->
-            <FrameLayout
-                android:id="@+id/clothingFrame2"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_margin="6dp"
-                android:background="@drawable/clothing_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+        <!-- Clothing Item 2 (Center) -->
+        <FrameLayout
+            android:id="@+id/clothingFrame2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/clothing_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@id/clothingFrame3"
+            app:layout_constraintStart_toEndOf="@id/clothingFrame1"
+            app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/clothing2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@android:drawable/ic_menu_gallery" />
-            </FrameLayout>
+            <ImageView
+                android:id="@+id/clothing2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery" />
+        </FrameLayout>
 
-            <!-- Clothing Item 3 -->
-            <FrameLayout
-                android:id="@+id/clothingFrame3"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_margin="6dp"
-                android:background="@drawable/clothing_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+        <!-- Clothing Item 3 (Right) -->
+        <FrameLayout
+            android:id="@+id/clothingFrame3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/clothing_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/clothingFrame2"
+            app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/clothing3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@android:drawable/ic_menu_gallery" />
-            </FrameLayout>
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/clothing3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery" />
+        </FrameLayout>
 
-        <!-- Second Row - 3 items -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="4dp">
+        <!-- Row 2 -->
+        <!-- Clothing Item 4 (Left) -->
+        <FrameLayout
+            android:id="@+id/clothingFrame4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/clothing_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@id/clothingFrame5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clothingFrame1">
 
-            <!-- Clothing Item 4 -->
-            <FrameLayout
-                android:id="@+id/clothingFrame4"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_margin="6dp"
-                android:background="@drawable/clothing_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:id="@+id/clothing4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery" />
+        </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/clothing4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@android:drawable/ic_menu_gallery" />
-            </FrameLayout>
+        <!-- Clothing Item 5 (Center) -->
+        <FrameLayout
+            android:id="@+id/clothingFrame5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/clothing_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@id/clothingFrame6"
+            app:layout_constraintStart_toEndOf="@id/clothingFrame4"
+            app:layout_constraintTop_toBottomOf="@id/clothingFrame2">
 
-            <!-- Clothing Item 5 -->
-            <FrameLayout
-                android:id="@+id/clothingFrame5"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_margin="6dp"
-                android:background="@drawable/clothing_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:id="@+id/clothing5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery" />
+        </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/clothing5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@android:drawable/ic_menu_gallery" />
-            </FrameLayout>
+        <!-- Clothing Item 6 (Right) -->
+        <FrameLayout
+            android:id="@+id/clothingFrame6"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/clothing_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/clothingFrame5"
+            app:layout_constraintTop_toBottomOf="@id/clothingFrame3">
 
-            <!-- Clothing Item 6 -->
-            <FrameLayout
-                android:id="@+id/clothingFrame6"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_margin="6dp"
-                android:background="@drawable/clothing_item_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:id="@+id/clothing6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery" />
+        </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/clothing6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@android:drawable/ic_menu_gallery" />
-            </FrameLayout>
-        </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
