@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +15,15 @@
             android:name=".SignUp"
             android:exported="false" />
 
+        <activity
+            android:name=".HomeTaskActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+
+        <!-- Welcome screen (launcher / first screen) -->
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">
@@ -31,4 +41,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    </manifest>
+
+</manifest>
