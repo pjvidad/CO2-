@@ -75,7 +75,7 @@
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:backgroundTint="#CAFFB9"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/montserrat_medium"
             android:text="@string/home_task"
             android:textColor="@color/black" />
 
@@ -88,7 +88,7 @@
             android:layout_width="100dp"
             android:layout_height="48dp"
             android:backgroundTint="#2E4057"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/montserrat_medium"
 
             android:text="@string/home_events" />
     </LinearLayout>

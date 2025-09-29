@@ -57,7 +57,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="#1C2B48"
-        android:fontFamily="@font/montserrat"
+        android:fontFamily="@font/montserrat_medium"
         android:shape="oval"
         android:text="@string/tracker_add"
         android:textColor="#fff"
@@ -72,33 +72,33 @@
         android:orientation="horizontal">
 
         <Button
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:backgroundTint="#6FCF97"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/montserrat_medium"
             android:text="@string/tracker_today"
-            android:textColor="#fff"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#fff" />
 
         <Button
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:backgroundTint="#1C2B48"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/montserrat_medium"
             android:text="@string/tracker_week"
-            android:textColor="#fff"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#fff" />
 
         <Button
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#1C2B48"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/montserrat_medium"
             android:text="@string/tracker_month"
-            android:textColor="#fff"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textColor="#fff" />
     </LinearLayout>
 
     <!-- Breakdown Header -->
