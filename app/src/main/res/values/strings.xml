@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">CO2-</string>
     <string name="welcome_btn" translatable="false">Get Started</string>
+    <string name="sign_in_btn" translatable="false">Sign In</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="log_in" translatable="false">Log-in</string>
+    <string name="or_sign_in_with" translatable="false">or sign in with:</string>
+    <string name="google" translatable="false">Google</string>
+    <string name="email_hint" translatable="false">example@example.com</string>
+    <string name="password_hint" translatable="false">******</string>
+
 </resources>
