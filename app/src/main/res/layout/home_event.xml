@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true" >
 
     <ImageView
         android:id="@+id/userImage"
@@ -14,6 +15,7 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="589dp"
+        android:contentDescription="@string/home_user_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +31,7 @@
         android:layout_marginEnd="226dp"
         android:layout_marginBottom="594dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Username!"
+        android:text="@string/home_username"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#2E4057"
         android:textSize="35sp"
@@ -47,7 +49,7 @@
         android:layout_marginEnd="166dp"
         android:layout_marginBottom="646dp"
         android:fontFamily="@font/montserrat"
-        android:text="Welcome back,"
+        android:text="@string/home_welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,12 +57,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="221dp"
-        android:layout_height="46dp"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
         android:layout_marginStart="98dp"
         android:layout_marginTop="157dp"
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="528dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,26 +71,26 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/taskbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/taskButton"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
             android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat"
-            android:text="Task"
+            android:text="@string/home_task"
             android:textColor="@color/black" />
 
         <Space
-            android:layout_width="40dp"
+            android:layout_width="20dp"
             android:layout_height="0dp" />
 
         <Button
-            android:id="@+id/eventsbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/eventsButton"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
             android:backgroundTint="#2E4057"
             android:fontFamily="@font/montserrat"
 
-            android:text="Events" />
+            android:text="@string/home_events" />
     </LinearLayout>
 
     <TextView
@@ -100,7 +103,7 @@
         android:layout_marginEnd="170dp"
         android:layout_marginBottom="478dp"
         android:fontFamily="@font/montserrat"
-        android:text="Community Events"
+        android:text="@string/home_event_title"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,8 +128,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F5F5F5"
+            android:contentDescription="@string/home_event_image_desc"
             android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:src="@android:drawable/ic_menu_gallery"
+            tools:ignore="ImageContrastCheck" />
 
     </androidx.cardview.widget.CardView>
 

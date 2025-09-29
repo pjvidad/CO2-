@@ -10,6 +10,7 @@
     <string name="google" translatable="false">Google</string>
     <string name="email_hint" translatable="false">example@example.com</string>
     <string name="password_hint" translatable="false">******</string>
+
     /Library Strings
     <string name="library_title" translatable="false">Library</string>
     <string name="library_energy" translatable="false">100</string>
@@ -17,6 +18,7 @@
     <string name="bookTitle1" translatable="false">Book Title 1</string>
     <string name="bookTitle2" translatable="false">Book Title 2</string>
     <string name="bookTitle3" translatable="false">Book Title 3</string>
+
     /Tracker Strings
     <string name="tracker_today" translatable="false">Today</string>
     <string name="tracker_week" translatable="false">Week</string>
@@ -59,8 +61,16 @@
     <string name="tracker_sat_value" translatable="false">7.2 kg</string>
     <string name="tracker_sun_value" translatable="false">7.2 kg</string>
 
-
-
+    /Home Strings
+    <string name="home_title" translatable="false">Home</string>
+    <string name="home_task" translatable="false">Task</string>
+    <string name="home_events" translatable="false">Events</string>
+    <string name="home_task_title" translatable="false">Today\'s Task</string>
+    <string name="home_event_title" translatable="false">Community Events</string>
+    <string name="home_event_image_desc" translatable="false">Event Image</string>
+    <string name="home_welcome" translatable="false">Welcome Back,</string>
+    <string name="home_username" translatable="false">Username!</string>
+    <string name="home_user_image" translatable="false">User Image</string>
 
     /NavBar Strings
     <string name="nav_home" translatable="false">Home</string>
