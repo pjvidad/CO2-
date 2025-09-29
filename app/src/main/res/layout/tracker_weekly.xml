@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/montserrat_bold"
-        android:text="My Carbon Footprint"
+        android:text="@string/tracker_title"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -21,29 +22,33 @@
         android:id="@+id/todayImpact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today's Impact"
-        android:textSize="14sp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_today_impact"
         android:textColor="#444"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/impactValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8.5 kg CO2"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_black"
+        android:text="@string/tracker_impact_value"
         android:textColor="#000"
-        android:layout_gravity="center_horizontal" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/impactComparison"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12% below yesterday"
-        android:textSize="12sp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_impact_comparison"
         android:textColor="#4CAF50"
-        android:layout_gravity="center_horizontal" />
+        android:textSize="12sp"
+        tools:ignore="TextContrastCheck" />
 
     <!-- Add Button -->
     <Button
@@ -52,8 +57,9 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="#1C2B48"
+        android:fontFamily="@font/montserrat"
         android:shape="oval"
-        android:text="+ Add"
+        android:text="@string/tracker_add"
         android:textColor="#fff"
         android:textSize="14sp" />
 
@@ -66,28 +72,36 @@
         android:layout_marginTop="16dp">
 
         <Button
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Today"
-            android:textColor="#fff"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="#1C2B48"
-            android:layout_marginEnd="8dp"/>
+            android:fontFamily="@font/montserrat"
+            android:text="@string/tracker_today"
+            android:textColor="#fff" />
 
         <Button
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Week"
-            android:textColor="#fff"
+            android:layout_marginEnd="8dp"
             android:backgroundTint="#6FCF97"
-            android:layout_marginEnd="8dp"/>
+            android:fontFamily="@font/montserrat"
+            android:text="@string/tracker_week"
+            android:textColor="#fff"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:layout_width="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Month"
-            android:textColor="#fff"
             android:backgroundTint="#1C2B48"
-            android:padding="8dp"/>
+            android:fontFamily="@font/montserrat"
+            android:padding="8dp"
+            android:text="@string/tracker_month"
+            android:textColor="#fff" />
+
     </LinearLayout>
 
     <!-- This Week Section -->
@@ -98,14 +112,15 @@
         android:elevation="2dp"
         android:orientation="vertical"
         android:padding="12dp"
-        android:layout_marginTop="24dp"> >
+        android:layout_marginTop="24dp">
 
         <!-- Week Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="This Week"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/tracker_weekly_title"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -115,7 +130,8 @@
             android:layout_height="200dp"
             android:gravity="bottom"
             android:orientation="horizontal"
-            android:weightSum="7">
+            android:weightSum="7"
+            android:baselineAligned="false">
 
             <!-- Each Day Column -->
             <LinearLayout
@@ -134,14 +150,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Mon"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_mon"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_mon_value"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -160,14 +178,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Tue"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_tue"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_tue_value"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -186,14 +206,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Wed"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_wed"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_wed_value"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -212,14 +234,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Thu"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_thu"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_thu_value"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -238,14 +262,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Fri"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_fri"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_fri_value"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -264,14 +290,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Sat"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_sat"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_sat_value"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -290,14 +318,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Sun"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_sun"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
-                    android:textSize="10sp" />
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/tracker_sun_value"
+                    android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -306,7 +336,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Weekly Average: 8.0 kg CO2/day"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/tracker_weekly_average"
             android:textColor="#000000"
             android:textSize="12sp" />
     </LinearLayout>
