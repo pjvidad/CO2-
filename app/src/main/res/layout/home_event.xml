@@ -10,37 +10,60 @@
         android:id="@+id/userImage"
         android:layout_width="121dp"
         android:layout_height="98dp"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="44dp"
+        android:layout_marginStart="274dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="589dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="226dp"
+        android:layout_marginBottom="594dp"
         android:text="Username!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#2E4057"
         android:textSize="35sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/fixedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="646dp"
         android:text="Welcome back,"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="221dp"
         android:layout_height="46dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="157dp"
         android:layout_marginEnd="92dp"
+        android:layout_marginBottom="528dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="157dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/taskbutton"
@@ -69,10 +92,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="222dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="478dp"
         android:text="Community Events"
         android:textSize="23sp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="222dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="409dp"
@@ -83,10 +112,16 @@
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="350dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="111dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="270dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="match_parent"
@@ -100,10 +135,16 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="633dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="74dp"
         android:gravity="center"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="633dp">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Active dot (larger, dark) -->
         <View
