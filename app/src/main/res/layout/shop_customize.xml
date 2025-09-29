@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@drawable/points_card_bg"
+        android:background="@drawable/avatar_bg"
         android:elevation="4dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -22,10 +22,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:text="My Points\n🪙 99"
-            android:textColor="#FFFFFF"
+            android:textColor="#FBFBFB"
             android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -36,7 +35,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="16dp"
-        android:background="@drawable/avatar_bg"
+        android:background="@android:drawable/dialog_holo_light_frame"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -47,7 +46,8 @@
             android:layout_height="match_parent"
             android:padding="8dp"
             android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:src="@android:drawable/ic_menu_gallery"
+            android:contentDescription="@string/app_name" />
     </FrameLayout>
 
     <!-- Discovery and Customize Buttons -->
@@ -69,7 +69,6 @@
             android:layout_marginEnd="12dp"
             android:backgroundTint="#1C2B48"
             android:elevation="2dp"
-            android:fontFamily="@font/montserrat_medium"
             android:text="Redeem"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
@@ -81,7 +80,6 @@
             android:layout_height="48dp"
             android:backgroundTint="#CAFFB9"
             android:elevation="2dp"
-            android:fontFamily="@font/montserrat_medium"
             android:text="Customize"
             android:textAllCaps="false"
             android:textColor="#000000"
@@ -110,7 +108,8 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:src="@android:drawable/ic_menu_gallery"
+            android:contentDescription="@string/app_name" />
     </FrameLayout>
 
     <!-- Bottom Clothing Options Panel -->
@@ -129,8 +128,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Guideline for centering -->
-
         <!-- Row 1 -->
         <!-- Clothing Item 1 (Left) -->
         <FrameLayout
@@ -138,7 +135,6 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/clothing_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -154,7 +150,8 @@
                 android:background="@android:color/white"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/app_name" />
         </FrameLayout>
 
         <!-- Clothing Item 2 (Center) -->
@@ -164,7 +161,6 @@
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/clothing_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -179,7 +175,8 @@
                 android:background="@android:color/white"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/app_name" />
         </FrameLayout>
 
         <!-- Clothing Item 3 (Right) -->
@@ -188,7 +185,6 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
-            android:background="@drawable/clothing_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -203,7 +199,8 @@
                 android:background="@android:color/white"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/app_name" />
         </FrameLayout>
 
         <!-- Row 2 -->
@@ -214,7 +211,6 @@
             android:layout_height="70dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/clothing_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -230,7 +226,8 @@
                 android:background="@android:color/white"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/app_name" />
         </FrameLayout>
 
         <!-- Clothing Item 5 (Center) -->
@@ -241,7 +238,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/clothing_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -256,7 +252,8 @@
                 android:background="@android:color/white"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/app_name" />
         </FrameLayout>
 
         <!-- Clothing Item 6 (Right) -->
@@ -266,7 +263,6 @@
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
-            android:background="@drawable/clothing_item_bg"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -281,7 +277,8 @@
                 android:background="@android:color/white"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@android:drawable/ic_menu_gallery" />
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/app_name" />
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
