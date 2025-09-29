@@ -11,6 +11,7 @@
         android:layout_height="98dp"
         android:layout_marginStart="274dp"
         android:layout_marginBottom="589dp"
+        android:contentDescription="@string/userProfile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,14 +27,15 @@
         android:layout_marginEnd="226dp"
         android:layout_marginBottom="594dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Username!"
+        android:text="@string/home_username"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#2E4057"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintOverlap" />
 
     <TextView
         android:id="@+id/fixedText"
@@ -44,7 +46,7 @@
         android:layout_marginEnd="166dp"
         android:layout_marginBottom="646dp"
         android:fontFamily="@font/montserrat"
-        android:text="Welcome back,"
+        android:text="@string/home_welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +70,7 @@
             android:layout_height="48dp"
             android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat"
-            android:text="Task"
+            android:text="@string/home_task"
             android:textColor="@color/black"
             app:iconSize="50dp" />
 
@@ -82,19 +84,17 @@
             android:layout_height="48dp"
             android:backgroundTint="#2E4057"
             android:fontFamily="@font/montserrat"
-
-            android:text="Events" />
+            android:text="@string/home_events" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/TaskOrEvent"
+        android:id="@+id/task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="50dp"
         android:layout_marginTop="222dp"
         android:fontFamily="@font/montserrat"
-        android:text="Today's Task"
+        android:text="@string/home_task_title"
         android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -105,8 +105,10 @@
         android:layout_height="76dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="264dp"
+        android:contentDescription="@string/task_0_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -119,10 +121,11 @@
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
-        android:text="Read and take a quiz on the app's library"
-        android:textSize="19sp"
+        android:text="@string/task_0"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/DoneButton"
@@ -131,11 +134,13 @@
         android:layout_marginTop="340dp"
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
-        android:text="Done"
+        android:text="@string/home_done_button"
+        android:textColor="#006064"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView6"
@@ -147,10 +152,11 @@
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
-        android:text="Declutter e-waste in your house."
-        android:textSize="19sp"
+        android:text="@string/task_1"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -158,6 +164,7 @@
         android:layout_height="76dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="397dp"
+        android:contentDescription="@string/task_1_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -169,7 +176,8 @@
         android:layout_marginTop="473dp"
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
-        android:text="Done"
+        android:text="@string/home_done_button"
+        android:textColor="#006064"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -183,7 +191,8 @@
         android:layout_marginTop="606dp"
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
-        android:text="Done"
+        android:text="@string/home_done_button"
+        android:textColor="#006064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -197,10 +206,11 @@
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
         android:padding="8dp"
-        android:text="Walk 10,000 steps today"
-        android:textSize="19sp"
+        android:text="@string/task_2"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -208,8 +218,10 @@
         android:layout_height="76dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="530dp"
+        android:contentDescription="@string/task_2_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
 
 
