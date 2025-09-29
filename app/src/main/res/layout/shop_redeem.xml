@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Images and Cards -->
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="110dp"
         android:layout_height="122dp"
         app:srcCompat="@drawable/card_background"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="219dp" />
+        tools:layout_editor_absoluteY="219dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="432dp"
-        android:layout_height="185dp"
-        app:srcCompat="@drawable/card_background"
-        tools:layout_editor_absoluteX="-11dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        android:id="@+id/bg500"
+        android:layout_width="640dp"
+        android:layout_height="214dp"
+        app:srcCompat="@drawable/bg500"
+        tools:layout_editor_absoluteX="-115dp"
+        tools:layout_editor_absoluteY="-36dp" />
 
     <ImageView
-        android:id="@+id/violet"
+        android:id="@+id/blue"
         android:layout_width="75dp"
         android:layout_height="74dp"
-        android:src="@drawable/Violet"
+        android:src="@drawable/blue"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="219dp" />
 
@@ -34,18 +37,16 @@
         android:layout_width="110dp"
         android:layout_height="122dp"
         android:src="@drawable/card_background"
-    tools:layout_editor_absoluteX="16dp"
-    tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/violet3"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/Violet"
-        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="365dp" />
 
-
+    <ImageView
+        android:id="@+id/grey"
+        android:layout_width="75dp"
+        android:layout_height="74dp"
+        android:src="@drawable/grey"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="365dp" />
 
     <ImageView
         android:id="@+id/view6"
@@ -56,14 +57,12 @@
         tools:layout_editor_absoluteY="365dp" />
 
     <ImageView
-        android:id="@+id/violet4"
+        android:id="@+id/lightpink"
         android:layout_width="75dp"
         android:layout_height="74dp"
-        android:src="@drawable/Violet"
+        android:src="@drawable/lightpink"
         tools:layout_editor_absoluteX="168dp"
         tools:layout_editor_absoluteY="365dp" />
-
-
 
     <ImageView
         android:id="@+id/view7"
@@ -74,13 +73,12 @@
         tools:layout_editor_absoluteY="365dp" />
 
     <ImageView
-        android:id="@+id/violet5"
+        android:id="@+id/bibe"
         android:layout_width="75dp"
         android:layout_height="74dp"
-        android:src="@drawable/Violet"
+        android:src="@drawable/bibe"
         tools:layout_editor_absoluteX="304dp"
         tools:layout_editor_absoluteY="365dp" />
-
 
     <ImageView
         android:id="@+id/view8"
@@ -89,6 +87,14 @@
         android:src="@drawable/card_background"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="542dp" />
+
+    <ImageView
+        android:id="@+id/quizicon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/quizicon"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="557dp" />
 
     <ImageView
         android:id="@+id/view9"
@@ -115,14 +121,12 @@
         tools:layout_editor_absoluteY="219dp" />
 
     <ImageView
-        android:id="@+id/Violet"
+        android:id="@+id/green"
         android:layout_width="75dp"
         android:layout_height="74dp"
-        android:src="@drawable/Violet"
+        android:src="@drawable/green"
         tools:layout_editor_absoluteX="168dp"
         tools:layout_editor_absoluteY="219dp" />
-
-
 
     <ImageView
         android:id="@+id/view4"
@@ -133,20 +137,204 @@
         tools:layout_editor_absoluteY="219dp" />
 
     <ImageView
-        android:id="@+id/violet2"
+        android:id="@+id/fedora"
         android:layout_width="75dp"
         android:layout_height="74dp"
-        android:src="@drawable/Violet"
+        android:src="@drawable/fedora"
         tools:layout_editor_absoluteX="304dp"
         tools:layout_editor_absoluteY="219dp" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/shopnav"
         android:layout_width="359dp"
         android:layout_height="42dp"
-        app:srcCompat="@drawable/card_bg"
+        app:srcCompat="@drawable/shopnav"
         tools:layout_editor_absoluteX="26dp"
         tools:layout_editor_absoluteY="154dp" />
 
+    <!-- Redeem Buttons -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:text="Redeem"
+        android:textSize="10sp"
+        android:backgroundTint="#2E4057"
+        android:textColor="#CAFFB9"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:text="Redeem"
+        android:textSize="10sp"
+        android:backgroundTint="#2E4057"
+        android:textColor="#CAFFB9"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="475dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:text="Redeem"
+        android:textSize="10sp"
+        android:backgroundTint="#2E4057"
+        android:textColor="#CAFFB9"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="472dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:text="Redeem"
+        android:textSize="10sp"
+        android:backgroundTint="#2E4057"
+        android:textColor="#CAFFB9"
+        tools:layout_editor_absoluteX="304dp"
+        tools:layout_editor_absoluteY="472dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:text="Redeem"
+        android:textSize="10sp"
+        android:backgroundTint="#2E4057"
+        android:textColor="#CAFFB9"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="91dp"
+        android:layout_height="32dp"
+        android:text="Redeem"
+        android:textSize="10sp"
+        android:backgroundTint="#2E4057"
+        android:textColor="#CAFFB9"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <!-- Labels -->
+    <!-- Blue Shirt -->
+    <TextView
+        android:id="@+id/textViewBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue Shirt"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <TextView
+        android:id="@+id/textViewBluePoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Aqua Points"
+        android:textSize="7sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <!-- Green Shirt -->
+    <TextView
+        android:id="@+id/textViewGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Green Shirt"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <!-- Fedora Hat -->
+    <TextView
+        android:id="@+id/textViewGreenPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Aqua Points"
+        android:textSize="7sp"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <TextView
+        android:id="@+id/textViewFedora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fedora Hat"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="312dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <!-- Gray Polo Shirt -->
+    <TextView
+        android:id="@+id/textViewFedoraPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Aqua Points"
+        android:textSize="7sp"
+        tools:layout_editor_absoluteX="322dp"
+        tools:layout_editor_absoluteY="302dp" />
+
+    <TextView
+        android:id="@+id/textViewGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gray Polo Shirt"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="431dp" />
+
+    <!-- Pink Polo Shirt -->
+    <TextView
+        android:id="@+id/textViewGrayPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Aqua Points"
+        android:textSize="7sp"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="447dp" />
+
+    <TextView
+        android:id="@+id/textViewPink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pink Polo Shirt"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="431dp" />
+
+    <!-- Duck Hair Clip -->
+    <TextView
+        android:id="@+id/textViewPinkPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Aqua Points"
+        android:textSize="7sp"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layaout_editor_absoluteY="447dp" />
+
+    <TextView
+        android:id="@+id/textViewDuck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duck Hair Clip"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/bibe"
+        app:layout_constraintStart_toStartOf="@id/view7"
+        app:layout_constraintEnd_toEndOf="@id/view7" />
+
+    <TextView
+        android:id="@+id/textViewDuckPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 Aqua Points"
+        android:textSize="7sp"
+        app:layout_constraintTop_toBottomOf="@id/bibe"
+        app:layout_constraintStart_toStartOf="@id/view7"
+        app:layout_constraintEnd_toEndOf="@id/view7"
+        android:layout_marginTop="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
