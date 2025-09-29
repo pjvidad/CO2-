@@ -7,6 +7,7 @@
     android:padding="16dp">
 
     <!-- Title -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -266,6 +267,60 @@
         </LinearLayout>
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_navbar"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageButton
+            android:id="@+id/navHome"
+            app:tint="#1C2B48"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="Home"
+            android:src="@drawable/ic_home" />
+
+        <ImageButton
+            android:id="@+id/navBook"
+            app:tint="#1C2B48"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="Book"
+            android:src="@drawable/ic_book" />
+
+        <ImageButton
+            android:id="@+id/navCalc"
+            app:tint="#1C2B48"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="Calculator"
+            android:src="@drawable/ic_calculator" />
+
+        <ImageButton
+            android:id="@+id/navBag"
+            app:tint="#1C2B48"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="Bag"
+            android:src="@drawable/ic_shop" />
     </LinearLayout>
 
     <!-- Bottom Navigation -->
