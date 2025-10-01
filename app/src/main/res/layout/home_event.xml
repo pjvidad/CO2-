@@ -37,8 +37,11 @@
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
+        tools:ignore="VisualLintOverlap" />
 
     <TextView
         android:id="@+id/fixedText"
@@ -51,10 +54,13 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/home_welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
 
     <LinearLayout
         android:layout_width="250dp"
@@ -87,7 +93,7 @@
             android:id="@+id/eventsButton"
             android:layout_width="100dp"
             android:layout_height="48dp"
-            android:backgroundTint="@color/button_green"
+            android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat_medium"
 
             android:text="@string/home_events"
