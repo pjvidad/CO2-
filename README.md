@@ -12,7 +12,8 @@ Your final output is the frontend of your Dashboard and Features of your project
 
 ### Next Steps
 
-1.  Prioritize Layout
-2.  To ask sir - if buttons should function (But since it's just dashboard, I think not)
+1. Layout done
+2. Navigations done (error on Weekly Tracker)
+3. 
 
 --grmartinez
