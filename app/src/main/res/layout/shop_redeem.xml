@@ -89,14 +89,6 @@
         tools:layout_editor_absoluteY="542dp" />
 
     <ImageView
-        android:id="@+id/quizicon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/quizicon"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="557dp" />
-
-    <ImageView
         android:id="@+id/view9"
         android:layout_width="111dp"
         android:layout_height="87dp"
@@ -143,14 +135,6 @@
         android:src="@drawable/fedora"
         tools:layout_editor_absoluteX="304dp"
         tools:layout_editor_absoluteY="219dp" />
-
-    <ImageView
-        android:id="@+id/shopnav"
-        android:layout_width="359dp"
-        android:layout_height="42dp"
-        app:srcCompat="@drawable/shopnav"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="154dp" />
 
     <!-- Redeem Buttons -->
     <Button

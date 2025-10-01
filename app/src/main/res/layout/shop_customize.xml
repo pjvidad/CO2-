@@ -35,7 +35,6 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="16dp"
-        android:background="@drawable/avatar_bg"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -137,7 +136,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/viole"
+            android:background="@drawable/violet"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"

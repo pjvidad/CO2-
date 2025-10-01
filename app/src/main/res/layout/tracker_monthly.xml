@@ -73,6 +73,7 @@
         android:layout_marginTop="16dp">
 
         <Button
+            android:id="@+id/todayButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -83,6 +84,7 @@
             android:textColor="#fff" />
 
         <Button
+            android:id="@+id/weekButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -93,6 +95,7 @@
             android:textColor="#fff" />
 
         <Button
+            android:id="@+id/monthButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"

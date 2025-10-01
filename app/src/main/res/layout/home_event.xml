@@ -74,10 +74,10 @@
             android:id="@+id/taskButton"
             android:layout_width="100dp"
             android:layout_height="48dp"
-            android:backgroundTint="#CAFFB9"
+            android:backgroundTint="@color/button_blue"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/home_task"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
         <Space
             android:layout_width="20dp"
@@ -87,10 +87,11 @@
             android:id="@+id/eventsButton"
             android:layout_width="100dp"
             android:layout_height="48dp"
-            android:backgroundTint="#2E4057"
+            android:backgroundTint="@color/button_green"
             android:fontFamily="@font/montserrat_medium"
 
-            android:text="@string/home_events" />
+            android:text="@string/home_events"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <TextView

@@ -82,6 +82,7 @@
             android:textColor="#fff" />
 
         <Button
+            android:id="@+id/weekButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -93,6 +94,7 @@
             tools:ignore="TextContrastCheck" />
 
         <Button
+            android:id="@+id/monthButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
