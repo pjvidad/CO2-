@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/montserrat"
+        android:padding="4sp"
         android:text="@string/tracker_today_impact"
         android:textColor="#444"
         android:textSize="14sp" />

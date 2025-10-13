@@ -8,6 +8,8 @@
     android:padding="40dp">
 
     <!-- Title -->
+
+    <!-- Today's Impact -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +19,6 @@
         android:text="@string/tracker_title"
         android:textSize="20sp" />
 
-    <!-- Today's Impact -->
     <TextView
         android:id="@+id/todayImpact"
         android:layout_width="wrap_content"
@@ -25,6 +26,7 @@
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/montserrat"
         android:text="@string/tracker_today_impact"
+        android:padding="3sp"
         android:textColor="#444"
         android:textSize="14sp" />
 
