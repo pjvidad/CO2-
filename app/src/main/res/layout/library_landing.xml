@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/booklibrary"
+        android:alpha="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@null" />
 
     <TextView
         android:id="@+id/library_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="144dp"
         android:fontFamily="@font/montserrat_bold"
+
         android:text="@string/library_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#2E4057"
-
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/searchView3"
         app:layout_constraintEnd_toStartOf="@+id/library_energy"
-        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="39dp"
         android:layout_height="39dp"
+        android:layout_marginEnd="28dp"
         android:contentDescription="@string/energy_icon"
         app:layout_constraintBottom_toTopOf="@+id/searchView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +47,7 @@
         app:layout_constraintStart_toEndOf="@+id/library_energy"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.576"
-        app:srcCompat="@drawable/card_bg" />
+        app:srcCompat="@drawable/energyicon" />
 
     <TextView
         android:id="@+id/library_energy"
@@ -77,12 +92,12 @@
             android:id="@+id/bookTitle3"
             android:layout_width="195dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:backgroundTint="#9CA3AF"
+            android:backgroundTint="#1C2B48"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/bookTitle3"
-            android:textColor="@color/black" />
+            app:cornerRadius="0dp"
+            android:textColor="@color/white" />
 
         <ImageView
             android:id="@+id/bookImage3"
@@ -90,7 +105,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/lib_book_3"
-            app:srcCompat="@drawable/card_bg" />
+            app:srcCompat="@drawable/reducingco2f" />
 
     </LinearLayout>
 
@@ -113,17 +128,17 @@
             android:layout_width="119dp"
             android:layout_height="match_parent"
             android:contentDescription="@string/lib_book_0"
-            app:srcCompat="@drawable/card_bg" />
+            app:srcCompat="@drawable/thecarboncycle" />
 
         <Button
             android:id="@+id/bookTitle0"
             android:layout_width="193dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="#9CA3AF"
+            android:backgroundTint="#1C2B48"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/bookTitle0"
-            android:textColor="@color/black" />
+            app:cornerRadius="0dp"
+            android:textColor="#fff" />
     </LinearLayout>
 
     <LinearLayout
@@ -143,20 +158,21 @@
             android:id="@+id/bookTitle1"
             android:layout_width="195dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:backgroundTint="#9CA3AF"
+            android:backgroundTint="#1C2B48"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/bookTitle1"
-            android:textColor="@color/black" />
+            app:cornerRadius="0dp"
+            android:textColor="#fff" />
 
         <ImageView
             android:id="@+id/bookImage1"
-            android:layout_width="116dp"
+            android:layout_width="119dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/lib_book_1"
-            app:srcCompat="@drawable/card_bg" />
+            app:srcCompat="@drawable/trashtravels" />
+
 
     </LinearLayout>
 
@@ -178,18 +194,18 @@
             android:layout_width="119dp"
             android:layout_height="match_parent"
             android:contentDescription="@string/lib_book_2"
-            app:srcCompat="@drawable/card_bg" />
+            app:srcCompat="@drawable/co2forkids" />
 
         <Button
             android:id="@+id/bookTitle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:backgroundTint="#9CA3AF"
+            android:backgroundTint="#1C2B48"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/bookTitle2"
-            android:textColor="@color/black" />
+            app:cornerRadius="0dp"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="40dp">
 
     <!-- Title -->
 
@@ -19,6 +19,7 @@
         android:textStyle="bold" />
 
     <!-- Today's Impact -->
+
     <TextView
         android:id="@+id/todayImpact"
         android:layout_width="wrap_content"
@@ -77,10 +78,10 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="#6FCF97"
+            android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/tracker_today"
-            android:textColor="#fff" />
+            android:textColor="#000" />
 
         <Button
             android:id="@+id/weekButton"

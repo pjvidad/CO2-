@@ -135,6 +135,7 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginStart="274dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="589dp"
         android:contentDescription="@string/userProfile"
         android:scaleType="centerCrop"

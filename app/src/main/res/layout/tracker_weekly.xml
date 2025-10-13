@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#F5F5F5"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="40dp">
 
     <!-- Title -->
     <TextView
@@ -51,6 +51,8 @@
         tools:ignore="TextContrastCheck" />
 
     <!-- Add Button -->
+
+    <!-- Tabs -->
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="100dp"
@@ -63,13 +65,13 @@
         android:textColor="#fff"
         android:textSize="14sp" />
 
-    <!-- Tabs -->
+    <!-- This Week Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:layout_marginTop="16dp">
+        android:orientation="horizontal">
 
         <Button
             style="?android:attr/buttonBarButtonStyle"
@@ -87,10 +89,10 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="#6FCF97"
+            android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat"
             android:text="@string/tracker_week"
-            android:textColor="#fff"
+            android:textColor="#000"
             tools:ignore="TextContrastCheck" />
 
         <Button
@@ -106,15 +108,14 @@
 
     </LinearLayout>
 
-    <!-- This Week Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         android:elevation="2dp"
         android:orientation="vertical"
-        android:padding="12dp"
-        android:layout_marginTop="24dp">
+        android:padding="12dp">
 
         <!-- Week Title -->
         <TextView
@@ -130,10 +131,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:baselineAligned="false"
             android:gravity="bottom"
             android:orientation="horizontal"
-            android:weightSum="7"
-            android:baselineAligned="false">
+            android:weightSum="7">
 
             <!-- Each Day Column -->
             <LinearLayout
@@ -344,8 +345,8 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-        <!-- Last Week Barchart -->
-    </LinearLayout>
+    <!-- Last Week Barchart -->
+</LinearLayout>
 
     <!-- Bottom Navigation -->
 

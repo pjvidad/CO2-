@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#F5F5F5"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="40dp">
 
     <!-- Title -->
     <TextView
@@ -68,16 +68,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:layout_marginTop="16dp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/todayButton"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="7dp"
             android:backgroundTint="#1C2B48"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/tracker_today"
@@ -88,7 +88,7 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="7dp"
             android:backgroundTint="#1C2B48"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/tracker_week"
@@ -99,11 +99,11 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#6FCF97"
+            android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat_medium"
-            android:padding="8dp"
+            android:padding="7dp"
             android:text="@string/tracker_month"
-            android:textColor="#fff"
+            android:textColor="#000"
             tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
@@ -111,11 +111,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/card_background"
-        android:padding="16dp"
         android:layout_margin="16dp"
-        android:elevation="2dp">
+        android:background="@drawable/card_background"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <!-- Title -->
         <TextView
@@ -132,8 +132,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="">
+            android:gravity=""
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -158,12 +158,12 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="12dp"
-            android:progress="83"
-            android:max="100"
-            android:progressTint="#1C2B48"
-            android:progressBackgroundTint="#D0EFD4"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:max="100"
+            android:progress="83"
+            android:progressBackgroundTint="#D0EFD4"
+            android:progressTint="#1C2B48" />
 
         <!-- Remaining value -->
         <TextView
@@ -191,9 +191,9 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#EEEEEE"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:background="#EEEEEE" />
 
         <!-- Keep Going + Mascot -->
         <TextView
