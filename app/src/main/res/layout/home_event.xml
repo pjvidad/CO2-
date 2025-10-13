@@ -3,144 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clickable="true"
-    android:focusable="true" >
-
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="121dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="589dp"
-        android:contentDescription="@string/home_user_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="226dp"
-        android:layout_marginBottom="594dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/home_username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#2E4057"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056"
-        tools:ignore="VisualLintOverlap" />
-
-    <TextView
-        android:id="@+id/fixedText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="646dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_welcome"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="157dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="528dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/taskButton"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/button_blue"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/home_task"
-            android:textColor="@color/white" />
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp" />
-
-        <Button
-            android:id="@+id/eventsButton"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:backgroundTint="#CAFFB9"
-            android:fontFamily="@font/montserrat_medium"
-
-            android:text="@string/home_events"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/TaskOrEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="222dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="478dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_event_title"
-        android:textSize="23sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="350dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="111dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#F5F5F5"
-            android:contentDescription="@string/home_event_image_desc"
-            android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_gallery"
-            tools:ignore="ImageContrastCheck" />
-
-    </androidx.cardview.widget.CardView>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -153,8 +16,10 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.687">
 
         <!-- Active dot (larger, dark) -->
         <View
@@ -180,5 +45,121 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="331dp"
+        android:layout_height="398dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="#F5F5F5"
+        android:contentDescription="@string/home_event_image_desc"
+        android:scaleType="fitCenter"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653"
+        tools:ignore="ImageContrastCheck" />
 
+    <TextView
+        android:id="@+id/events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="268dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_event_title"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/username2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="226dp"
+        android:layout_marginBottom="594dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/home_username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#2E4057"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
+        tools:ignore="VisualLintOverlap" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="80dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/taskButton"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#CAFFB9"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/home_task"
+            android:textColor="@color/black"
+            app:iconSize="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="0dp" />
+
+        <Button
+            android:id="@+id/eventsButton"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#2E4057"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/home_events" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/userImage2"
+        android:layout_width="121dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="274dp"
+        android:layout_marginBottom="589dp"
+        android:contentDescription="@string/userProfile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/fixedText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="646dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_welcome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
 </androidx.constraintlayout.widget.ConstraintLayout>
