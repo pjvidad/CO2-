@@ -1,130 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    android:orientation="vertical"
-    android:padding="40dp">
+    android:layout_height="match_parent">
 
-    <!-- Title -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_bold"
-
-        android:text="@string/tracker_title"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <!-- Today's Impact -->
-
-    <TextView
-        android:id="@+id/todayImpact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/tracker_today_impact"
-        android:textColor="#444"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/impactValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_black"
-
-        android:text="@string/tracker_impact_value"
-        android:textColor="#000"
-        android:textSize="22sp" />
-
-    <TextView
-        android:id="@+id/impactComparison"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/tracker_impact_comparison"
-        android:textColor="#4CAF50"
-        android:textSize="12sp" />
-
-    <!-- Add Button -->
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#1C2B48"
-        android:fontFamily="@font/montserrat_medium"
-        android:shape="oval"
-        android:text="@string/tracker_add"
-        android:textColor="#fff"
-        android:textSize="14sp" />
-
-    <!-- Tabs -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/todayButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="#CAFFB9"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/tracker_today"
-            android:textColor="#000" />
-
-        <Button
-            android:id="@+id/weekButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="#1C2B48"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/tracker_week"
-            android:textColor="#fff" />
-
-        <Button
-            android:id="@+id/monthButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#1C2B48"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/tracker_month"
-            android:textColor="#fff" />
-    </LinearLayout>
-
-    <!-- Breakdown Header -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/tracker_today_breakdown"
-        android:textStyle="bold" />
-
-    <!-- Breakdown List -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="333dp"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="48dp"
         android:background="#FFFFFF"
         android:clipToPadding="false"
         android:elevation="2dp"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <!-- Transportation-->
         <LinearLayout
@@ -273,7 +167,130 @@
 
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="332dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_today_breakdown"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="235dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/todayButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#CAFFB9"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/tracker_today"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/weekButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#1C2B48"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/tracker_week"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/monthButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#1C2B48"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/tracker_month"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/tracker_title"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/impactValue2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_black"
+
+        android:text="@string/tracker_impact_value"
+        android:textColor="#000"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/todayImpact2"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <TextView
+        android:id="@+id/todayImpact2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="125dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_today_impact"
+        android:textColor="#444"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/impactComparison2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/tracker_impact_comparison"
+        android:textColor="#4CAF50"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/impactValue2" />
+
+    <Button
+        android:id="@+id/btnAdd2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="133dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="#1C2B48"
+        android:fontFamily="@font/montserrat_medium"
+        android:shape="oval"
+        android:text="@string/tracker_add"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
