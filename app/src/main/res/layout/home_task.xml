@@ -106,48 +106,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="216dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="632dp"
-        android:background="@color/text_view_background_color"
-        android:backgroundTint="#AAD7A4"
-        android:fontFamily="@font/montserrat"
-        android:padding="8dp"
-        android:text="@string/task_2"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextSizeCheck" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="97dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="632dp"
-        android:contentDescription="@string/task_2_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/doneButton2"
-        android:layout_width="310dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="708dp"
-        android:backgroundTint="#AAD7A4"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_done_button"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/doneButton"
         android:layout_width="310dp"
@@ -234,6 +192,33 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.constraintlayout.widget.Group android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:layout_width="305dp"
+        android:layout_height="138dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="620dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
