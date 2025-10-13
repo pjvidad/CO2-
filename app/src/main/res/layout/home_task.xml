@@ -5,20 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="121dp"
-        android:layout_height="98dp"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginStart="274dp"
         android:layout_marginBottom="589dp"
         android:contentDescription="@string/userProfile"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        tools:srcCompat="@drawable/profile" />
 
     <TextView
         android:id="@+id/username"
@@ -117,6 +119,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/home_done_button"
         android:textColor="#000000"
+        app:cornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -125,21 +128,23 @@
         android:id="@+id/DoneButton"
         android:layout_width="310dp"
         android:layout_height="48dp"
+        android:layout_marginStart="51dp"
         android:layout_marginTop="408dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#AAD7A4"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_done_button"
         android:textColor="#000000"
+        app:cornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="216dp"
-        android:layout_height="76dp"
+        android:layout_width="230dp"
+        android:layout_height="75dp"
         android:layout_marginTop="332dp"
         android:layout_marginEnd="50dp"
         android:background="@color/text_view_background_color"
@@ -155,7 +160,7 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="216dp"
+        android:layout_width="230dp"
         android:layout_height="76dp"
         android:layout_marginTop="480dp"
         android:layout_marginEnd="50dp"
@@ -170,55 +175,32 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextSizeCheck" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView3"
-        android:layout_width="97dp"
-        android:layout_height="76dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="51dp"
         android:layout_marginTop="480dp"
         android:contentDescription="@string/task_1_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/decluttering" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="97dp"
-        android:layout_height="76dp"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/task1_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginStart="51dp"
         android:layout_marginTop="332dp"
         android:contentDescription="@string/task_0_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/librarylesson" />
 
-    <androidx.constraintlayout.widget.Group android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <TableLayout
-        android:layout_width="305dp"
-        android:layout_height="138dp"
-        android:layout_marginEnd="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="620dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

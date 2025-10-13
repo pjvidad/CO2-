@@ -130,20 +130,22 @@
             android:text="@string/home_events" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/userImage2"
-        android:layout_width="121dp"
-        android:layout_height="98dp"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginStart="274dp"
         android:layout_marginBottom="589dp"
         android:contentDescription="@string/userProfile"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        tools:srcCompat="@drawable/profile" />
 
     <TextView
         android:id="@+id/fixedText2"
