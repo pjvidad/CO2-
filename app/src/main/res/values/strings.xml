@@ -12,6 +12,7 @@
     <string name="password_hint" translatable="false">******</string>
 
     /Library Strings
+    <string name="today_tasks" translatable="false">Today\'s Tasks</string>
     <string name="library_title" translatable="false">Library</string>
     <string name="library_energy" translatable="false">100</string>
     <string name="bookTitle0" translatable="false">The Carbon Cycle</string>
