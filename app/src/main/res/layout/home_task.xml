@@ -3,207 +3,174 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="589dp"
-        android:contentDescription="@string/userProfile"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-        app:srcCompat="@drawable/profile" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="226dp"
-        android:layout_marginBottom="594dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/home_username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#2E4057"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056"
-        tools:ignore="VisualLintOverlap" />
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/fixedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="646dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_welcome"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/home_username"
+        android:textColor="#2E4057"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toStartOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fixedText" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/userProfile"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        app:srcCompat="@drawable/profile" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="80dp"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username">
 
         <Button
             android:id="@+id/taskButton"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:backgroundTint="#CAFFB9"
             android:fontFamily="@font/montserrat"
             android:text="@string/home_task"
-            android:textColor="@color/black"
-            app:iconSize="50dp" />
+            android:textColor="@color/button_blue"
+            tools:ignore="VisualLintButtonSize" />
 
         <Space
-            android:layout_width="20dp"
-            android:layout_height="0dp" />
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/eventsButton"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:backgroundTint="#2E4057"
             android:fontFamily="@font/montserrat"
-            android:text="@string/home_events" />
+            android:text="@string/home_events"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_task_title"
         android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/doneButton"
-        android:layout_width="310dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="556dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#AAD7A4"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_done_button"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/DoneButton"
-        android:layout_width="310dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="408dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="#AAD7A4"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_done_button"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="DuplicateSpeakableTextCheck" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="230dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="332dp"
-        android:layout_marginEnd="50dp"
-        android:background="@color/text_view_background_color"
-        android:backgroundTint="#AAD7A4"
-        android:fontFamily="@font/montserrat"
-        android:padding="8dp"
-        android:text="@string/task_0"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="230dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="480dp"
-        android:layout_marginEnd="50dp"
-        android:background="@color/text_view_background_color"
-        android:backgroundTint="#AAD7A4"
-        android:fontFamily="@font/montserrat"
-        android:padding="8dp"
-        android:text="@string/task_1"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextSizeCheck" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="480dp"
-        android:contentDescription="@string/task_1_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/decluttering" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/task1_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/task_0_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/librarylesson"
+        app:layout_constraintTop_toBottomOf="@+id/task"
+        app:srcCompat="@drawable/librarylesson" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="#AAD7A4"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="@string/task_0"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/task1_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/task1_image"
+        app:layout_constraintTop_toTopOf="@+id/task1_image" />
+
+    <Button
+        android:id="@+id/doneButton1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#AAD7A4"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_done_button"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task1_image"
+        tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/task_1_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doneButton1"
+        app:srcCompat="@drawable/decluttering"
         tools:ignore="ImageContrastCheck" />
 
-    <androidx.constraintlayout.widget.Group
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="#AAD7A4"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="@string/task_1"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
+    <Button
+        android:id="@+id/doneButton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#AAD7A4"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_done_button"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
