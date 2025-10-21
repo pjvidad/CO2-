@@ -24,13 +24,11 @@ class ShopFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonRedeem.setOnClickListener {
-            // Create an instance of the fragment you want to switch to
             val shopRedeemFragment = ShopRedeemFragment()
 
-            // Replace the current fragment with the new one
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, shopRedeemFragment) // Assumes your container is R.id.fragmentContainer
-                .addToBackStack(null) // Allows user to press back to return
+                .replace(R.id.fragmentContainer, shopRedeemFragment)
+                .addToBackStack(null)
                 .commit()
         }
     }

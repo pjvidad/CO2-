@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(ShopFragment())
         }
     }
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
