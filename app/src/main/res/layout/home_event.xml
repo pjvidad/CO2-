@@ -88,6 +88,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/home_event_title"
         android:textSize="23sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
