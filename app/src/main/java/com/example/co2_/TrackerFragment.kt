@@ -1,10 +1,11 @@
 package com.example.co2_
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 
 class TrackerFragment : Fragment() {
 
@@ -17,5 +18,12 @@ class TrackerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val fabAddEntry: FloatingActionButton = view.findViewById(R.id.btnAdd2)
+
+        fabAddEntry.setOnClickListener {
+            val addEntryFragment = AddEntryFragment()
+            addEntryFragment.show(getParentFragmentManager(), "AddEntryDialog")
+        }
     }
 }
