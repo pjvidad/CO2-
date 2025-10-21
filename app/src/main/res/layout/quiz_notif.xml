@@ -50,6 +50,7 @@
         android:layout_width="62dp"
         android:layout_height="4dp"
         android:layout_marginStart="11dp"
+        android:progress="100"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar5"
         app:layout_constraintStart_toEndOf="@+id/exitButton2"
         app:layout_constraintTop_toTopOf="@+id/progressBar5" />

@@ -128,14 +128,34 @@
             app:cornerRadius="20dp"
             android:textColor="#fff" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/bookImage1"
+        <FrameLayout
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-            android:contentDescription="@string/lib_book_1"
-            app:srcCompat="@drawable/trashtravels" />
+            android:layout_height="100dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/bookImage1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                android:contentDescription="@string/lib_book_1"
+                app:srcCompat="@drawable/trashtravels" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99000000"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:contentDescription="Locked"
+                app:srcCompat="@android:drawable/ic_lock_lock"
+                app:tint="@android:color/white" />
+
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -153,14 +173,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/bookImage2"
+        <FrameLayout
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-            android:contentDescription="@string/lib_book_2"
-            app:srcCompat="@drawable/co2forkids" />
+            android:layout_height="100dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/bookImage2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                android:contentDescription="@string/lib_book_2"
+                app:srcCompat="@drawable/co2forkids" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99000000"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:contentDescription="Locked"
+                app:srcCompat="@android:drawable/ic_lock_lock"
+                app:tint="@android:color/white" />
+
+        </FrameLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bookTitle2"
@@ -200,14 +240,34 @@
             app:cornerRadius="20dp"
             android:textColor="@color/white" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/bookImage3"
+        <FrameLayout
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-            android:contentDescription="@string/lib_book_3"
-            app:srcCompat="@drawable/reducingco2f" />
+            android:layout_height="100dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/bookImage3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                android:contentDescription="@string/lib_book_3"
+                app:srcCompat="@drawable/reducingco2f" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99000000"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:contentDescription="Locked"
+                app:srcCompat="@android:drawable/ic_lock_lock"
+                app:tint="@android:color/white" />
+
+        </FrameLayout>
 
     </LinearLayout>
 
