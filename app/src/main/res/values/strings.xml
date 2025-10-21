@@ -126,4 +126,9 @@
     <string name="finish_daily_tasks_label" translatable="false">Finish\nDaily Tasks</string>
     <string name="input_footprint" translatable="false">Input Footprint</string>
     <string name="input_footprint_label" translatable="false">Input\nFootprint</string>
+    <string name="customize_background_desc" translatable="false">Your character\'s room</string>
+    <string name="mascot" translatable="false">Your character mascot</string>
+    <string name="item_white_shirt" translatable="false">White Shirt</string>
+    <string name="item_white_shirt_2" translatable="false">White Polo Shirt</string>
+    <string name="done" translatable="false">Done</string>
 </resources>
