@@ -5,19 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/background_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/booklibrary"
-        android:alpha="0.4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@null" />
-
     <TextView
         android:id="@+id/library_title"
         android:layout_width="wrap_content"
@@ -26,11 +13,11 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="144dp"
         android:fontFamily="@font/montserrat_bold"
-
         android:text="@string/library_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#2E4057"
         android:textSize="35sp"
+
         app:layout_constraintEnd_toStartOf="@+id/library_energy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -172,6 +159,15 @@
             android:layout_weight="1"
             android:contentDescription="@string/lib_book_1"
             app:srcCompat="@drawable/trashtravels" />
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.4"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/booklibrary" />
 
 
     </LinearLayout>

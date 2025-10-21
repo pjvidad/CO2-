@@ -20,6 +20,19 @@
     <string name="bookTitle2" translatable="false">CO2 for Kids</string>
     <string name="bookTitle3" translatable="false">Reducing CO2 Footprint</string>
 
+    /Lesson 1 Strings
+    <string name="Lesson1" translatable="false">Lesson 1</string>
+    <string name="lesson_title" translatable="false">What is a Carbon Footprint?</string>
+    <string name="lesson_body" translatable="false">Think of a "footprint" as the mark you leave behind. Your <b>carbon footprint</b> is the total amount of greenhouse gases—primarily carbon dioxide (CO2)—that are released into the atmosphere because of your activities.
+        <p>It's a way to measure your personal impact on the environment. Everything we do has a carbon footprint. It includes both <b>direct emissions</b>, like the exhaust from a car you\'re riding in, and <b>indirect emissions</b>, which are the emissions created to produce the goods you use, like the energy used to manufacture your phone.</p>
+        <p>Greenhouse gases, like CO2, trap heat in the Earth\'s atmosphere. This is called the greenhouse effect. A certain amount of this is natural and necessary to keep our planet warm enough for life.</p>
+    </string>
+    <string name="lesson_title2" translatable="false">How can you shrink your footprint?</string>
+    <string name="lesson_body2" translatable="false"> <b>Conserve Energy:</b> Lessen your electricity use.</string>
+    <string name="lesson_body3" translatable="false"><b>Travel Smarter:</b> Walk, bike, or use public transportation when possible.</string>
+    <string name="lesson_body4" translatable="false"><b>Eat Mindfully:</b> Avoid wasting food.</string>
+    <string name="lesson_body5" translatable="false"><b>Reduce, Reuse, Recycle:</b> Think before you buy.</string>
+
     /Tracker Strings
     <string name="tracker_today" translatable="false">Today</string>
     <string name="tracker_week" translatable="false">Week</string>

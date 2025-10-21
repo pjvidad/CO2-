@@ -267,10 +267,12 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="238dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="485"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         tools:layout_editor_absoluteY="59dp" />
 
