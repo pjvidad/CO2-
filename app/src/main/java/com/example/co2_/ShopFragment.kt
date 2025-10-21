@@ -34,23 +34,38 @@ class ShopFragment : Fragment() {
                 .commit()
         }
 
-        // Accessory Click Logic
-        val accessoryImageViews = listOfNotNull(
-            binding.accessoryImageView1,
-            binding.accessoryImageView2,
-            binding.accessoryImageView3,
-            binding.accessoryImageView4,
-            binding.accessoryImageView5,
-            binding.accessoryImageView6
+        // --- Accessory Click Logic ---
+
+        // A map to associate each ImageView with its drawable resource.
+        // This is much safer and more reliable than using tags.
+        val accessoryMap = mapOf(
+            binding.accessoryImageView1.id to R.drawable.white,
+            binding.accessoryImageView2.id to R.drawable.violet,
+            binding.accessoryImageView3.id to R.drawable.grey,
+            binding.accessoryImageView4.id to R.drawable.blue,
+            binding.accessoryImageView5.id to R.drawable.fedora,
+            binding.accessoryImageView6.id to R.drawable.bibe
         )
 
-        accessoryImageViews.forEach { currentImageView ->
-            currentImageView.setOnClickListener { clickedView ->
-                lastSelectedImageView?.setBackgroundResource(R.drawable.card_background)
-                clickedView.setBackgroundResource(R.drawable.selected_card_background)
-                selectedAccessoryResId = clickedView.tag as? Int
-                lastSelectedImageView = clickedView as ImageView
-            }
+        val accessoryImageViews = accessoryMap.keys.map { view.findViewById<ImageView>(it) }
+
+        // A single, reusable click listener for all accessories
+        val clickListener = View.OnClickListener { clickedView ->
+            // Revert the background of the previously selected item
+            lastSelectedImageView?.setBackgroundResource(R.drawable.card_background)
+
+            // Highlight the new selection
+            clickedView.setBackgroundResource(R.drawable.selected_card_background)
+
+            // Store the drawable resource ID for the selected accessory using the map
+            selectedAccessoryResId = accessoryMap[clickedView.id]
+
+            // Keep track of the last selected view
+            lastSelectedImageView = clickedView as ImageView
+        }
+
+        accessoryImageViews.forEach { imageView ->
+            imageView.setOnClickListener(clickListener)
         }
 
         binding.buttonDone.setOnClickListener {
