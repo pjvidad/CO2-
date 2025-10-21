@@ -141,5 +141,6 @@
     <string name="aqua99" translatable="false">99</string>
     <string name="redeem" translatable="false">Redeem</string>
     <string name="customize" translatable="false">Customize</string>
+    <string name="done" translatable="false">Done</string>
 
 </resources>

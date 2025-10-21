@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/customize_background_desc" />
+        android:contentDescription="@string/tracker_today_breakdown" />
 
     <TextView
         android:id="@+id/my_aqua_points_title"
@@ -98,113 +98,139 @@
             tools:ignore="VisualLintButtonSize,VisualLintBounds" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_done"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#2E4057"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/done"
-        android:textColor="#FFFFFF"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="VisualLintButtonSize" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/customize_item_grid"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        app:columnCount="3"
-        app:useDefaultMargins="true"
-        app:layout_constraintBottom_toTopOf="@+id/button_done"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:elevation="2dp"
-            android:padding="12dp"
-            android:src="@drawable/item_white_shirt"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal"
-            android:contentDescription="@string/item_white_shirt" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:elevation="2dp"
-            android:padding="12dp"
-            android:src="@drawable/item_white_shirt_2"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal"
-            android:contentDescription="@string/item_white_shirt_2" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:elevation="2dp"
-            android:padding="12dp"
-            android:src="@drawable/grey"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal"
-            android:contentDescription="@string/grey" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:elevation="2dp"
-            android:padding="12dp"
-            android:src="@drawable/blue"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal"
-            android:contentDescription="@string/blue" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:elevation="2dp"
-            android:padding="12dp"
-            android:src="@drawable/fedora"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal"
-            android:contentDescription="@string/fedora" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@drawable/card_background"
-            android:elevation="2dp"
-            android:padding="12dp"
-            android:src="@drawable/bibe"
-            app:layout_columnWeight="1"
-            app:layout_gravity="fill_horizontal"
-            android:contentDescription="@string/bibe" />
-
-    </androidx.gridlayout.widget.GridLayout>
-
     <ImageView
         android:id="@+id/mascot_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:src="@drawable/mascot_placeholder"
-        android:contentDescription="@string/mascot"
-        app:layout_constraintBottom_toTopOf="@+id/customize_item_grid"
+        android:src="@drawable/mascot_el"
+        android:contentDescription="@string/bibe"
+        android:scaleType="fitCenter"
+
+        android:layout_marginTop="16dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/scrollable_content_guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/scrollable_content_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        app:layout_constraintGuide_percent="0.70" />
+    <androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:background="#CCE8D6"
+
+        app:layout_constraintTop_toTopOf="@+id/scrollable_content_guide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/customize_item_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:paddingHorizontal="16dp"
+                app:columnCount="3"
+                app:useDefaultMargins="true">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/card_background"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:src="@drawable/white"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    android:contentDescription="@string/grey" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/card_background"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:src="@drawable/violet"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    android:contentDescription="@string/grey" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/card_background"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:src="@drawable/grey"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    android:contentDescription="@string/grey" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/card_background"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:src="@drawable/blue"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    android:contentDescription="@string/blue" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/card_background"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:src="@drawable/fedora"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    android:contentDescription="@string/fedora" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/card_background"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:src="@drawable/bibe"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    android:contentDescription="@string/bibe" />
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <Button
+                android:id="@+id/button_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="16dp"
+                android:backgroundTint="#2E4057"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/done"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="20dp"
+                tools:ignore="VisualLintButtonSize" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
