@@ -149,67 +149,79 @@
                 app:useDefaultMargins="true">
 
                 <ImageView
+                    android:id="@+id/accessory_image_view_1"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/card_background"
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/white"
+                    android:tag="@drawable/white"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/grey" />
 
                 <ImageView
+                    android:id="@+id/accessory_image_view_2"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/card_background"
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/violet"
+                    android:tag="@drawable/violet"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/grey" />
 
                 <ImageView
+                    android:id="@+id/accessory_image_view_3"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/card_background"
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/grey"
+                    android:tag="@drawable/grey"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/grey" />
 
                 <ImageView
+                    android:id="@+id/accessory_image_view_4"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/card_background"
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/blue"
+                    android:tag="@drawable/blue"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/blue" />
 
                 <ImageView
+                    android:id="@+id/accessory_image_view_5"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/card_background"
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/fedora"
+                    android:tag="@drawable/fedora"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/fedora" />
 
                 <ImageView
+                    android:id="@+id/accessory_image_view_6"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/card_background"
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/bibe"
+                    android:tag="@drawable/bibe"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/bibe" />
