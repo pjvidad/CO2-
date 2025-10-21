@@ -5,7 +5,6 @@
     <color name="green">#CAFFB9</color>
     <color name="button_blue">#2E4057</color>
     <color name="button_green">#66A182</color>
-    
-    <!-- Add a new color for the background -->
+
     <color name="text_view_background_color">#E0E0E0</color>
 </resources>

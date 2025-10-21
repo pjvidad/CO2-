@@ -80,7 +80,7 @@
             android:text="@string/redeem"
             android:textColor="#FFFFFF"
             app:cornerRadius="20dp"
-            tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck" />
+            tools:ignore="VisualLintButtonSize,DuplicateSpeakableTextCheck,VisualLintBounds" />
 
         <Space
             android:layout_width="16dp"
@@ -113,6 +113,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+
+    <ImageView
+        android:id="@+id/mascot_accessory_layer" android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone" app:layout_constraintTop_toTopOf="@+id/mascot_image"
+        app:layout_constraintBottom_toBottomOf="@+id/mascot_image"
+        app:layout_constraintStart_toStartOf="@+id/mascot_image"
+        app:layout_constraintEnd_toEndOf="@+id/mascot_image"
+        android:contentDescription="@string/bibe"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/scrollable_content_guide"
