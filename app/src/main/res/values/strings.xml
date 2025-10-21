@@ -116,6 +116,24 @@
     <string name="aqua99" translatable="false">99</string>
     <string name="redeem" translatable="false">Redeem</string>
     <string name="customize" translatable="false">Customize</string>
+    <string name="aqua_points_title" translatable="false">Aqua Points</string>
+    <string name="price" translatable="false">100 Aqua Points</string>
+    <string name="blue" translatable="false">Blue Shirt</string>
+    <string name="green" translatable="false">Green Shirt</string>
+    <string name="fedora" translatable="false">Fedora Hat</string>
+    <string name="grey" translatable="false">Grey Polo Shirt</string>
+    <string name="lightpink" translatable="false">Pink Polo Shirt</string>
+    <string name="bibe" translatable="false">Duck Hair Clip"</string>
+    <string name="earn_more" translatable="false">Earn More</string>
+    <string name="start" translatable="false">Start</string>
+    <string name="take_a_quiz" translatable="false">Take a Quiz</string>
+    <string name="take_a_quiz_label" translatable="false">Take\na Quiz</string>
+    <string name="finish_daily_tasks" translatable="false">Finish Daily Tasks</string>
+    <string name="finish_daily_tasks_label" translatable="false">Finish\nDaily Tasks</string>
+    <string name="input_footprint" translatable="false">Input Footprint</string>
+    <string name="input_footprint_label" translatable="false">Input\nFootprint</string>
+
+
 
 
 
