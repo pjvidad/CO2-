@@ -23,12 +23,12 @@
     /Lesson 1 Strings
     <string name="Lesson1" translatable="false">Lesson 1</string>
     <string name="lesson_title" translatable="false">What is a Carbon Footprint?</string>
-    <string name="lesson_body" translatable="false">Think of a "footprint" as the mark you leave behind. Your carbon footprint is the total amount of greenhouse gases—primarily carbon dioxide (CO2)—that are released into the atmosphere because of your activities. It\'s a way to measure your personal impact on the environment. Everything we do has a carbon footprint. It includes both direct emissions, like the exhaust from a car you\'re riding in, and indirect emissions, which are the emissions created to produce the goods you use, like the energy used to manufacture your phone. Greenhouse gases, like CO2, trap heat in the Earth's atmosphere. This is called the greenhouse effect. A certain amount of this is natural and necessary to keep our planet warm enough for life.</string>
+    <string name="lesson_body" translatable="false">Think of a "footprint" as the mark you leave behind. Your carbon footprint is the total amount of greenhouse gases—primarily carbon dioxide (CO2)—that are released into the atmosphere because of your activities. It\'s a way to measure your personal impact on the environment. Everything we do has a carbon footprint. It includes both direct emissions, like the exhaust from a car you\'re riding in, and indirect emissions, which are the emissions created to produce the goods you use, like the energy used to manufacture your phone. Greenhouse gases, like CO2, trap heat in the Earth\'s atmosphere. This is called the greenhouse effect. A certain amount of this is natural and necessary to keep our planet warm enough for life.</string>
     <string name="lesson_title2" translatable="false">How can you shrink your footprint?</string>
     <string name="lesson_body2" translatable="false">Conserve Energy:Lessen your electricity use.</string>
     <string name="lesson_body3" translatable="false">Travel Smarter:Walk, bike, or use public transportation when possible.</string>
     <string name="lesson_body4" translatable="false">Eat Mindfully: Avoid wasting food.</string>
-    <string name="lesson_body5" translatable="false">Reduce, Reuse, Recycle:Think before you buy.</string>
+    <string name="lesson_body5" translatable="false">Reduce, Reuse, Recycle: Think before you buy.</string>
     <string name="next_button" translatable="false">Next</string>
 
     /Quiz Strings
