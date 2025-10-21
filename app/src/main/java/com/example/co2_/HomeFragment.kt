@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -25,7 +26,10 @@ class HomeFragment : Fragment() {
 
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
+            Toast.makeText(requireContext(), "Image successfully verified.", Toast.LENGTH_SHORT).show()
             taskViewToHide?.visibility = View.GONE
+        } else {
+            Toast.makeText(requireContext(), "There was no image verified.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -33,7 +37,10 @@ class HomeFragment : Fragment() {
     private val pickVisualMediaLauncher = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if (uri != null) {
             // The user has selected an image. The URI is available here.
+            Toast.makeText(requireContext(), "Image successfully verified.", Toast.LENGTH_SHORT).show()
             taskViewToHide?.visibility = View.GONE
+        } else {
+            Toast.makeText(requireContext(), "There was no image verified.", Toast.LENGTH_SHORT).show()
         }
     }
 
