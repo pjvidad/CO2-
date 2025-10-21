@@ -160,13 +160,31 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        android:textSize="11sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:textColor="#000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/aqua_points"
+                            app:tint="#2E4057"
+                            android:contentDescription="@string/aqua_points" />
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/redeem_blue"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
@@ -203,13 +221,31 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        android:textSize="11sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:textColor="#000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/aqua_points"
+                            app:tint="#2E4057"
+                            android:contentDescription="@string/aqua_points" />
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/redeem_green"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
@@ -246,13 +282,31 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        android:textSize="11sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:textColor="#000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/aqua_points"
+                            app:tint="#2E4057"
+                            android:contentDescription="@string/aqua_points" />
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/redeem_fedora"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
@@ -289,13 +343,31 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        android:textSize="11sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:textColor="#000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/aqua_points"
+                            app:tint="#2E4057"
+                            android:contentDescription="@string/aqua_points" />
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/redeem_grey"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
@@ -332,13 +404,31 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        android:textSize="11sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:textColor="#000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/aqua_points"
+                            app:tint="#2E4057"
+                            android:contentDescription="@string/aqua_points" />
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/redeem_lightpink"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"
@@ -375,13 +465,31 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price"
-                        android:textSize="11sp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:textColor="#000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/aqua_points"
+                            app:tint="#2E4057"
+                            android:contentDescription="@string/aqua_points" />
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/redeem_bibe"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="8dp"

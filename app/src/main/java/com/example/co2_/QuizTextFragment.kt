@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.co2_.databinding.QuizTextBinding
 
 class QuizTextFragment : Fragment() {
@@ -29,16 +30,48 @@ class QuizTextFragment : Fragment() {
 
         // Add click listener for the exit button
         binding.exitButton6.setOnClickListener {
-            // Go back to the previous screen
-            requireActivity().supportFragmentManager.popBackStack()
+            // Send a result to the parent fragment (BookFragment)
+            parentFragmentManager.setFragmentResult("lesson_exit", Bundle())
+            // Pop the back stack all the way back to the library page
+            requireActivity().supportFragmentManager.popBackStack("library_page", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
+
+        // Set up button navigation
+        val quizFalseFragment = QuizFalseFragment()
+        val quizImageFragment = QuizImageFragment()
+
+        binding.button.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, quizFalseFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.button2.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, quizFalseFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.button3.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, quizImageFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.button4.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, quizFalseFragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Show the bottom navigation bar again when the fragment is destroyed
-        val bottomNav = requireActivity().findViewById<View>(R.id.bottomNav)
-        bottomNav.visibility = View.VISIBLE
         _binding = null
+        // The navigation bar is made visible by the parent fragment (BookFragment)
     }
 }

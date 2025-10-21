@@ -24,6 +24,7 @@
         android:layout_width="92dp"
         android:layout_height="95dp"
         android:layout_marginTop="25dp"
+        app:tint="@color/black"
         android:contentDescription="@drawable/ic_life_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,6 +36,8 @@
         android:layout_width="62dp"
         android:layout_height="4dp"
         android:layout_marginStart="13dp"
+        android:progress="100"
+        android:progressTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/userLife5"
         app:layout_constraintStart_toEndOf="@+id/progressBar13"
         app:layout_constraintTop_toTopOf="@+id/userLife5" />
@@ -61,6 +64,8 @@
         android:layout_width="62dp"
         android:layout_height="4dp"
         android:layout_marginStart="13dp"
+        android:progress="100"
+        android:progressTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar12"
         app:layout_constraintStart_toEndOf="@+id/progressBar14"
         app:layout_constraintTop_toTopOf="@+id/progressBar12" />
@@ -71,6 +76,8 @@
         android:layout_width="62dp"
         android:layout_height="4dp"
         android:layout_marginStart="11dp"
+        android:progress="100"
+        android:progressTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar13"
         app:layout_constraintStart_toEndOf="@+id/exitButton5"
         app:layout_constraintTop_toTopOf="@+id/progressBar13" />

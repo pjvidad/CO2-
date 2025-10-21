@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.co2_.databinding.ShopRedeemBinding
 
@@ -23,17 +24,36 @@ class ShopRedeemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // --- Main Navigation ---
         binding.buttonCustomize.setOnClickListener {
-            // Create an instance of the fragment you want to switch to
             val shopFragment = ShopFragment()
-
-            // Replace the current fragment with the new one
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, shopFragment) // Make sure R.id.fragmentContainer is your main container
-                .addToBackStack(null) // Optional: Adds the transaction to the back stack
+                .replace(R.id.fragmentContainer, shopFragment)
+                .addToBackStack(null)
                 .commit()
         }
 
+        // --- Redeem Logic ---
+
+        val redeemListener = View.OnClickListener { 
+            val userPoints = binding.aquaPointsValue.text.toString().toIntOrNull() ?: 0
+            val itemPrice = getString(R.string.price).toIntOrNull() ?: 0
+
+            if (userPoints >= itemPrice) {
+                Toast.makeText(requireContext(), "Item will be purchased when available.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Insufficient Balance.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.redeemBlue.setOnClickListener(redeemListener)
+        binding.redeemGreen.setOnClickListener(redeemListener)
+        binding.redeemFedora.setOnClickListener(redeemListener)
+        binding.redeemGrey.setOnClickListener(redeemListener)
+        binding.redeemLightpink.setOnClickListener(redeemListener)
+        binding.redeemBibe.setOnClickListener(redeemListener)
+
+        // --- Earn More Navigation ---
         binding.buttonQuiz.setOnClickListener {
             val bookFragment = BookFragment()
             requireActivity().supportFragmentManager.beginTransaction()
