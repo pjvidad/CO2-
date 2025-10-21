@@ -7,14 +7,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.co2_.databinding.ShopCustomizeBinding
+import com.example.co2_.databinding.ShopCustomizeBinding // Ensure this matches your layout file name
 
-class ShopFragment : Fragment() {
+class ShopFragment : Fragment() { // This is your Customize screen
 
-    private var selectedAccessoryResId: Int? = null
-    private var lastSelectedImageView: ImageView? = null
+    // Stores the resource ID of the *full mascot image with the selected accessory*
+    private var selectedMascotImageResId: Int? = null
+    private var lastSelectedIconImageView: ImageView? = null // Tracks the clicked icon
     private var _binding: ShopCustomizeBinding? = null
     private val binding get() = _binding!!
+
+    // Store the resource ID of your default, plain mascot image
+    private val defaultMascotImageResId = R.drawable.el_hewooo // Replace with your actual default mascot drawable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,48 +38,41 @@ class ShopFragment : Fragment() {
                 .commit()
         }
 
-        // --- Accessory Click Logic ---
-
-        // A map to associate each ImageView with its drawable resource.
-        // This is much safer and more reliable than using tags.
+        // *** CRITICAL: Update this map ***
+        // Keys are the ICON ImageView IDs.
+        // Values are the corresponding FULL mascot image (wearing the accessory) drawable IDs.
         val accessoryMap = mapOf(
-            binding.accessoryImageView1.id to R.drawable.white,
-            binding.accessoryImageView2.id to R.drawable.violet,
-            binding.accessoryImageView3.id to R.drawable.grey,
-            binding.accessoryImageView4.id to R.drawable.blue,
-            binding.accessoryImageView5.id to R.drawable.fedora,
-            binding.accessoryImageView6.id to R.drawable.bibe
+            binding.accessoryImageView1.id to R.drawable.mascot_wearing_white,   // Example: R.drawable.mascot_wearing_white
+            binding.accessoryImageView2.id to R.drawable.mascot_wearing_violet,  // Example: R.drawable.mascot_wearing_violet
+            binding.accessoryImageView3.id to R.drawable.mascot_wearing_grey,    // Example: R.drawable.mascot_wearing_grey
+            binding.accessoryImageView4.id to R.drawable.mascot_wearing_blue,    // Example: R.drawable.mascot_wearing_blue
+            binding.accessoryImageView5.id to R.drawable.mascot_wearing_fedora,  // Example: R.drawable.mascot_wearing_fedora
+            binding.accessoryImageView6.id to R.drawable.mascot_wearing_bibe     // Example: R.drawable.mascot_wearing_bibe
         )
 
-        val accessoryImageViews = accessoryMap.keys.map { view.findViewById<ImageView>(it) }
+        val accessoryIconImageViews = accessoryMap.keys.mapNotNull { view.findViewById<ImageView>(it) }
 
-        // A single, reusable click listener for all accessories
-        val clickListener = View.OnClickListener { clickedView ->
-            // Revert the background of the previously selected item
-            lastSelectedImageView?.setBackgroundResource(R.drawable.card_background)
-
-            // Highlight the new selection
-            clickedView.setBackgroundResource(R.drawable.selected_card_background)
-
-            // Store the drawable resource ID for the selected accessory using the map
-            selectedAccessoryResId = accessoryMap[clickedView.id]
-
-            // Keep track of the last selected view
-            lastSelectedImageView = clickedView as ImageView
+        val clickListener = View.OnClickListener { clickedIconView ->
+            lastSelectedIconImageView?.setBackgroundResource(R.drawable.card_background)
+            clickedIconView.setBackgroundResource(R.drawable.selected_card_background)
+            // Store the ID of the full mascot image corresponding to the clicked icon
+            selectedMascotImageResId = accessoryMap[clickedIconView.id]
+            lastSelectedIconImageView = clickedIconView as ImageView
         }
 
-        accessoryImageViews.forEach { imageView ->
-            imageView.setOnClickListener(clickListener)
+        accessoryIconImageViews.forEach { iconImageView ->
+            iconImageView.setOnClickListener(clickListener)
         }
 
         binding.buttonDone.setOnClickListener {
-            selectedAccessoryResId?.let { resId ->
-                binding.mascotAccessoryLayer.setImageResource(resId)
-                binding.mascotAccessoryLayer.visibility = View.VISIBLE
+            selectedMascotImageResId?.let { fullMascotResId ->
+                // Set the main mascot image to the selected full image
+                binding.mascotImage.setImageResource(fullMascotResId)
                 Toast.makeText(context, "Accessory Applied!", Toast.LENGTH_SHORT).show()
             } ?: run {
-                binding.mascotAccessoryLayer.visibility = View.GONE
-                Toast.makeText(context, "No accessory selected.", Toast.LENGTH_SHORT).show()
+                // If nothing selected, revert to the default mascot image
+                binding.mascotImage.setImageResource(defaultMascotImageResId)
+                Toast.makeText(context, "No accessory selected. Reverting to default.", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -106,23 +106,11 @@
         android:src="@drawable/mascot_el"
         android:contentDescription="@string/bibe"
         android:scaleType="fitCenter"
-
         android:layout_marginTop="16dp"
-
         app:layout_constraintBottom_toTopOf="@+id/scrollable_content_guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
-
-    <ImageView
-        android:id="@+id/mascot_accessory_layer" android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        android:visibility="gone" app:layout_constraintTop_toTopOf="@+id/mascot_image"
-        app:layout_constraintBottom_toBottomOf="@+id/mascot_image"
-        app:layout_constraintStart_toStartOf="@+id/mascot_image"
-        app:layout_constraintEnd_toEndOf="@+id/mascot_image"
-        android:contentDescription="@string/bibe"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/scrollable_content_guide"
@@ -166,7 +154,7 @@
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/white"
-                    android:tag="@drawable/white"
+                    android:tag="@drawable/mascot_wearing_white"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/grey" />
@@ -179,7 +167,7 @@
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/violet"
-                    android:tag="@drawable/violet"
+                    android:tag="@drawable/mascot_wearing_violet"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/grey" />
@@ -192,7 +180,7 @@
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/grey"
-                    android:tag="@drawable/grey"
+                    android:tag="@drawable/mascot_wearing_grey"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/grey" />
@@ -205,7 +193,7 @@
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/blue"
-                    android:tag="@drawable/blue"
+                    android:tag="@drawable/mascot_wearing_blue"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/blue" />
@@ -218,7 +206,7 @@
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/fedora"
-                    android:tag="@drawable/fedora"
+                    android:tag="@drawable/mascot_wearing_fedora"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/fedora" />
@@ -231,7 +219,7 @@
                     android:elevation="2dp"
                     android:padding="12dp"
                     android:src="@drawable/bibe"
-                    android:tag="@drawable/bibe"
+                    android:tag="@drawable/mascot_wearing_bibe"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal"
                     android:contentDescription="@string/bibe" />
