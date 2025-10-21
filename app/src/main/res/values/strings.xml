@@ -16,9 +16,9 @@
     <string name="library_title" translatable="false">Library</string>
     <string name="library_energy" translatable="false">100</string>
     <string name="bookTitle0" translatable="false">The Carbon Cycle</string>
-    <string name="bookTitle1" translatable="false">Trash Travels</string>
-    <string name="bookTitle2" translatable="false">CO2 for Kids</string>
-    <string name="bookTitle3" translatable="false">Reducing CO2 Footprint</string>
+    <string name="bookTitle1" translatable="false">Trash Travels (WIP)</string>
+    <string name="bookTitle2" translatable="false">CO2 for Kids (WIP)</string>
+    <string name="bookTitle3" translatable="false">Reducing CO2 Footprint (WIP)</string>
 
     /Lesson 1 Strings
     <string name="Lesson1" translatable="false">Lesson 1</string>

@@ -1,29 +1,37 @@
 package com.example.co2_
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-
+import com.example.co2_.databinding.TrackerDailyBinding
 
 class TrackerFragment : Fragment() {
+
+    private var _binding: TrackerDailyBinding? = null
+    // This property is only valid between onCreateView and onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.tracker_daily, container, false)
+    ): View {
+        _binding = TrackerDailyBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fabAddEntry: FloatingActionButton = view.findViewById(R.id.btnAdd2)
-
-        fabAddEntry.setOnClickListener {
+        binding.btnAdd2.setOnClickListener {
             val addEntryFragment = AddEntryFragment()
-            addEntryFragment.show(getParentFragmentManager(), "AddEntryDialog")
+            addEntryFragment.show(parentFragmentManager, "AddEntryDialog")
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
