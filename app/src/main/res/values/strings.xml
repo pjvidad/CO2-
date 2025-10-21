@@ -32,6 +32,7 @@
     <string name="lesson_body3" translatable="false"><b>Travel Smarter:</b> Walk, bike, or use public transportation when possible.</string>
     <string name="lesson_body4" translatable="false"><b>Eat Mindfully:</b> Avoid wasting food.</string>
     <string name="lesson_body5" translatable="false"><b>Reduce, Reuse, Recycle:</b> Think before you buy.</string>
+    <string name="next_button" translatable="false">Next</string>
 
     /Tracker Strings
     <string name="tracker_today" translatable="false">Today</string>
