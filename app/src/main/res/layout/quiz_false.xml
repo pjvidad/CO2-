@@ -14,7 +14,6 @@
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="@string/Lesson1"
-
         android:textColor="#2E4057"
         android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
