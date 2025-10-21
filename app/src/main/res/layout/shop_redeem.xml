@@ -6,319 +6,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Images and Cards -->
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="110dp"
-        android:layout_height="122dp"
-        app:srcCompat="@drawable/card_background"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="219dp"
-        tools:ignore="MissingConstraints" />
-
     <ImageView
         android:id="@+id/bg500"
-        android:layout_width="640dp"
-        android:layout_height="214dp"
-        app:srcCompat="@drawable/bg500"
-        tools:layout_editor_absoluteX="-115dp"
-        tools:layout_editor_absoluteY="-36dp" />
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:contentDescription="@string/tracker_tue"/>
 
-    <ImageView
-        android:id="@+id/blue"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/blue"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="219dp" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="110dp"
-        android:layout_height="122dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/grey"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/grey"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/view6"
-        android:layout_width="110dp"
-        android:layout_height="122dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/lightpink"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/lightpink"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/view7"
-        android:layout_width="110dp"
-        android:layout_height="122dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/bibe"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/bibe"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <ImageView
-        android:id="@+id/view8"
-        android:layout_width="110dp"
-        android:layout_height="87dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="542dp" />
-
-    <ImageView
-        android:id="@+id/view9"
-        android:layout_width="111dp"
-        android:layout_height="87dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="542dp" />
-
-    <ImageView
-        android:id="@+id/view10"
-        android:layout_width="107dp"
-        android:layout_height="87dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="542dp" />
-
-    <ImageView
-        android:id="@+id/view3"
-        android:layout_width="110dp"
-        android:layout_height="122dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="219dp" />
-
-    <ImageView
-        android:id="@+id/green"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/green"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="219dp" />
-
-    <ImageView
-        android:id="@+id/view4"
-        android:layout_width="110dp"
-        android:layout_height="122dp"
-        android:src="@drawable/card_background"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="219dp" />
-
-    <ImageView
-        android:id="@+id/fedora"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
-        android:src="@drawable/fedora"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="219dp" />
-
-    <!-- Redeem Buttons -->
-    <Button
-        android:id="@+id/button"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
-        android:text="Redeem"
-        android:textSize="10sp"
-        android:backgroundTint="#2E4057"
+    <TextView
+        android:id="@+id/my_aqua_points_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aqua_points"
+        android:fontFamily="@font/montserrat"
         android:textColor="#CAFFB9"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="319dp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
-        android:text="Redeem"
-        android:textSize="10sp"
-        android:backgroundTint="#2E4057"
+    <ImageView
+        android:id="@+id/aqua_points_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/aqua_points"
+        app:tint="#CAFFB9"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/my_aqua_points_title"
+        app:layout_constraintTop_toBottomOf="@+id/my_aqua_points_title"
+        android:contentDescription="@string/aqua_points"/>
+
+    <TextView
+        android:id="@+id/aqua_points_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aqua99"
+        android:fontFamily="@font/montserrat"
         android:textColor="#CAFFB9"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="475dp" />
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/aqua_points_icon"
+        app:layout_constraintStart_toEndOf="@+id/aqua_points_icon"
+        app:layout_constraintTop_toTopOf="@+id/aqua_points_icon" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
-        android:text="Redeem"
-        android:textSize="10sp"
-        android:backgroundTint="#2E4057"
-        android:textColor="#CAFFB9"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="472dp" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
-        android:text="Redeem"
-        android:textSize="10sp"
-        android:backgroundTint="#2E4057"
-        android:textColor="#CAFFB9"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="472dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
-        android:text="Redeem"
-        android:textSize="10sp"
-        android:backgroundTint="#2E4057"
-        android:textColor="#CAFFB9"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="319dp" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="91dp"
-        android:layout_height="32dp"
-        android:text="Redeem"
-        android:textSize="10sp"
-        android:backgroundTint="#2E4057"
-        android:textColor="#CAFFB9"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="319dp" />
-
-    <!-- Labels -->
-    <!-- Blue Shirt -->
-    <TextView
-        android:id="@+id/textViewBlue"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Blue Shirt"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="286dp" />
+        android:orientation="horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/textViewBluePoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100 Aqua Points"
-        android:textSize="7sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="302dp" />
+        <Button
+            android:id="@+id/button_redeem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#CAFFB9"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/redeem"
+            android:textColor="@color/button_blue"
+            app:cornerRadius="20dp"
+            tools:ignore="VisualLintButtonSize" />
 
-    <!-- Green Shirt -->
-    <TextView
-        android:id="@+id/textViewGreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Green Shirt"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="286dp" />
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
 
-    <!-- Fedora Hat -->
-    <TextView
-        android:id="@+id/textViewGreenPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100 Aqua Points"
-        android:textSize="7sp"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="302dp" />
-
-    <TextView
-        android:id="@+id/textViewFedora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fedora Hat"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="312dp"
-        tools:layout_editor_absoluteY="286dp" />
-
-    <!-- Gray Polo Shirt -->
-    <TextView
-        android:id="@+id/textViewFedoraPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100 Aqua Points"
-        android:textSize="7sp"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="302dp" />
-
-    <TextView
-        android:id="@+id/textViewGray"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gray Polo Shirt"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="431dp" />
-
-    <!-- Pink Polo Shirt -->
-    <TextView
-        android:id="@+id/textViewGrayPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100 Aqua Points"
-        android:textSize="7sp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="447dp" />
-
-    <TextView
-        android:id="@+id/textViewPink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pink Polo Shirt"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="431dp" />
-
-    <!-- Duck Hair Clip -->
-    <TextView
-        android:id="@+id/textViewPinkPoints"
-        android:layout_width="45dp"
-        android:layout_height="23dp"
-        android:text="100 Aqua Points"
-        android:textSize="7sp"
-        tools:layaout_editor_absoluteY="447dp"
-        tools:layout_editor_absoluteX="175dp" />
-
-    <TextView
-        android:id="@+id/textViewDuck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Duck Hair Clip"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/bibe"
-        app:layout_constraintStart_toStartOf="@id/view7"
-        app:layout_constraintEnd_toEndOf="@id/view7" />
-
-    <TextView
-        android:id="@+id/textViewDuckPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100 Aqua Points"
-        android:textSize="7sp"
-        app:layout_constraintTop_toBottomOf="@id/bibe"
-        app:layout_constraintStart_toStartOf="@id/view7"
-        app:layout_constraintEnd_toEndOf="@id/view7"
-        android:layout_marginTop="2dp" />
+        <Button
+            android:id="@+id/button_customize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#2E4057"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/customize"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="20dp"
+            tools:ignore="VisualLintButtonSize,VisualLintBounds" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

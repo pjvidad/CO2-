@@ -49,7 +49,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/tracker_impact_comparison"
         android:textColor="#4CAF50"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/impactValue2"
         app:layout_constraintTop_toBottomOf="@+id/impactValue2" />
 

@@ -111,5 +111,12 @@
     <string name="task_2" translatable="false">Walk 10,000 steps today</string>
     <string name="home_done_button" translatable="false">Done</string>"
 
+    /shopStrings
+    <string name="aqua_points" translatable="false">My Aqua Points</string>"
+    <string name="aqua99" translatable="false">99</string>
+    <string name="redeem" translatable="false">Redeem</string>
+    <string name="customize" translatable="false">Customize</string>
+
+
 
 </resources>
