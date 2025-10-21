@@ -1,4 +1,5 @@
 <resources>
+    /Welcome and Sign in Strings
     <string name="app_name" translatable="false">CO2-</string>
     <string name="welcome_btn" translatable="false">Get Started</string>
     <string name="sign_in_btn" translatable="false">Sign In</string>
@@ -10,6 +11,7 @@
     <string name="email_hint" translatable="false">example@example.com</string>
     <string name="password_hint" translatable="false">******</string>
 
+    /Library Strings
     <string name="today_tasks" translatable="false">Today\'s Tasks</string>
     <string name="library_title" translatable="false">Library</string>
     <string name="library_energy" translatable="false">100</string>
@@ -18,22 +20,31 @@
     <string name="bookTitle2" translatable="false">CO2 for Kids</string>
     <string name="bookTitle3" translatable="false">Reducing CO2 Footprint</string>
 
+    /Lesson 1 Strings
     <string name="Lesson1" translatable="false">Lesson 1</string>
     <string name="lesson_title" translatable="false">What is a Carbon Footprint?</string>
-
-    <string name="lesson_body" translatable="false"><![CDATA[Think of a "footprint" as the mark you leave behind. Your <b>carbon footprint</b> is the total amount of greenhouse gases—primarily carbon dioxide (CO2)—that are released into the atmosphere because of your activities.
-        <p>It\'s a way to measure your personal impact on the environment. Everything we do has a carbon footprint. It includes both <b>direct emissions</b>, like the exhaust from a car you\'re riding in, and <b>indirect emissions</b>, which are the emissions created to produce the goods you use, like the energy used to manufacture your phone.</p>
-        <p>Greenhouse gases, like CO2, trap heat in the Earth\'s atmosphere. This is called the greenhouse effect. A certain amount of this is natural and necessary to keep our planet warm enough for life.</p>]]></string>
-
+    <string name="lesson_body" translatable="false">Think of a  as the mark you leave behind. Your
+    </string>
     <string name="lesson_title2" translatable="false">How can you shrink your footprint?</string>
-
-    <string name="lesson_body2" translatable="false"><![CDATA[<b>Conserve Energy:</b> Lessen your electricity use.]]></string>
-    <string name="lesson_body3" translatable="false"><![CDATA[<b>Travel Smarter:</b> Walk, bike, or use public transportation when possible.]]></string>
-    <string name="lesson_body4" translatable="false"><![CDATA[<b>Eat Mindfully:</b> Avoid wasting food.]]></string>
-    <string name="lesson_body5" translatable="false"><![CDATA[<b>Reduce, Reuse, Recycle:</b> Think before you buy.]]></string>
-
+    <string name="lesson_body2" translatable="false">Conserve Energy:Lessen your electricity use.</string>
+    <string name="lesson_body3" translatable="false">Travel Smarter:Walk, bike, or use public transportation when possible.</string>
+    <string name="lesson_body4" translatable="false">Eat MindfullAvoid wasting food.</string>
+    <string name="lesson_body5" translatable="false">Reduce, Reuse, Recycle:Think before you buy.</string>
     <string name="next_button" translatable="false">Next</string>
 
+    /Quiz Strings
+    <string name="notif_title" translatable="false">Now that you’ve learned what a Carbon Footprint is, let’s test your knowledge!</string>
+    <string name="question_1" translatable="false">Which among the images classify as an e-waste?</string>
+    <string name="question_2" translatable="false">Which of the following activities would have the largest indirect carbon footprint?</string>
+    <string name="Q2.C1" translatable="false">Turning on a light in your room.</string>
+    <string name="Q2.C2" translatable="false">Riding your bike to a friend\'s house.</string>
+    <string name="Q2.C3" translatable="false">Buying a new smartphone that was manufactured and shipped from another country.</string>
+    <string name="Q2.C4" translatable="false">Taking a short shower.</string>
+    <string name="greeting_text" translatable="false">Congratulations!</string>
+
+
+
+    /Tracker Strings
     <string name="tracker_today" translatable="false">Today</string>
     <string name="tracker_week" translatable="false">Week</string>
     <string name="tracker_month" translatable="false">Month</string>
@@ -75,6 +86,7 @@
     <string name="tracker_sat_value" translatable="false">7.2 kg</string>
     <string name="tracker_sun_value" translatable="false">7.2 kg</string>
 
+    /Home Strings
     <string name="home_title" translatable="false">Home</string>
     <string name="home_task" translatable="false">Task</string>
     <string name="home_events" translatable="false">Events</string>
@@ -85,31 +97,30 @@
     <string name="home_username" translatable="false">Username!</string>
     <string name="home_user_image" translatable="false">User Image</string>
 
+    /NavBar Strings
     <string name="nav_home" translatable="false">Home</string>
     <string name="nav_book" translatable="false">Book</string>
     <string name="nav_calc" translatable="false">Calculator</string>
     <string name="nav_bag" translatable="false">Bag</string>
 
+    /contentDescription
     <string name="userProfile" translatable="false">User Profile</string>
     <string name="cd_home_events" translatable="false">View community events</string>
     <string name="task_0_image" translatable="false">User Profile</string>
     <string name="task_1_image" translatable="false">User Profile</string>
     <string name="task_2_image" translatable="false">User Profile</string>
-    <string name="energy_icon" translatable="false">Energy Icon</string>
-    <string name="lib_book_0" translatable="false">Book 0</string>
-    <string name="lib_book_1" translatable="false">Book 1</string>
-    <string name="lib_book_2" translatable="false">Book 2</string>
-    <string name="lib_book_3" translatable="false">Book 3</string>
+    <string name="energy_icon" translatable="false">Energy Icon</string>"
+    <string name="lib_book_0" translatable="false">Book 0</string>"
+    <string name="lib_book_1" translatable="false">Book 1</string>"
+    <string name="lib_book_2" translatable="false">Book 2</string>"
+    <string name="lib_book_3" translatable="false">Book 3</string>"
 
+    /taskLibrary
     <string name="task_0" translatable="false">"Read and take a quiz on the app's library"</string>
     <string name="task_1" translatable="false">Declutter e-waste in your house.</string>
     <string name="task_2" translatable="false">Walk 10,000 steps today</string>
-    <string name="home_done_button" translatable="false">Done</string>
+    <string name="home_done_button" translatable="false">Done</string>"
 
-    <string name="aqua_points" translatable="false">My Aqua Points</string>
-    <string name="aqua99" translatable="false">99</string>
-    <string name="redeem" translatable="false">Redeem</string>
-    <string name="customize" translatable="false">Customize</string>
     <string name="aqua_points_title" translatable="false">Aqua Points</string>
     <string name="price" translatable="false">100 Aqua Points</string>
     <string name="blue" translatable="false">Blue Shirt</string>
@@ -117,7 +128,7 @@
     <string name="fedora" translatable="false">Fedora Hat</string>
     <string name="grey" translatable="false">Grey Polo Shirt</string>
     <string name="lightpink" translatable="false">Pink Polo Shirt</string>
-    <string name="bibe" translatable="false">Duck Hair Clip</string>
+    <string name="bibe" translatable="false">Duck Hair Clip"</string>
     <string name="earn_more" translatable="false">Earn More</string>
     <string name="start" translatable="false">Start</string>
     <string name="take_a_quiz" translatable="false">Take a Quiz</string>
@@ -126,9 +137,9 @@
     <string name="finish_daily_tasks_label" translatable="false">Finish\nDaily Tasks</string>
     <string name="input_footprint" translatable="false">Input Footprint</string>
     <string name="input_footprint_label" translatable="false">Input\nFootprint</string>
-    <string name="customize_background_desc" translatable="false">Your character\'s room</string>
-    <string name="mascot" translatable="false">Your character mascot</string>
-    <string name="item_white_shirt" translatable="false">White Shirt</string>
-    <string name="item_white_shirt_2" translatable="false">White Polo Shirt</string>
-    <string name="done" translatable="false">Done</string>
+    <string name="aqua_points" translatable="false">My Aqua Points</string>
+    <string name="aqua99" translatable="false">99</string>
+    <string name="redeem" translatable="false">Redeem</string>
+    <string name="customize" translatable="false">Customize</string>
+
 </resources>
