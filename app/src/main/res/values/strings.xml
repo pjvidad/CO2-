@@ -23,15 +23,13 @@
     /Lesson 1 Strings
     <string name="Lesson1" translatable="false">Lesson 1</string>
     <string name="lesson_title" translatable="false">What is a Carbon Footprint?</string>
-    <string name="lesson_body" translatable="false">Think of a "footprint" as the mark you leave behind. Your <b>carbon footprint</b> is the total amount of greenhouse gases—primarily carbon dioxide (CO2)—that are released into the atmosphere because of your activities.
-        <p>It's a way to measure your personal impact on the environment. Everything we do has a carbon footprint. It includes both <b>direct emissions</b>, like the exhaust from a car you\'re riding in, and <b>indirect emissions</b>, which are the emissions created to produce the goods you use, like the energy used to manufacture your phone.</p>
-        <p>Greenhouse gases, like CO2, trap heat in the Earth\'s atmosphere. This is called the greenhouse effect. A certain amount of this is natural and necessary to keep our planet warm enough for life.</p>
+    <string name="lesson_body" translatable="false">Think of a  as the mark you leave behind. Your
     </string>
     <string name="lesson_title2" translatable="false">How can you shrink your footprint?</string>
-    <string name="lesson_body2" translatable="false"> <b>Conserve Energy:</b> Lessen your electricity use.</string>
-    <string name="lesson_body3" translatable="false"><b>Travel Smarter:</b> Walk, bike, or use public transportation when possible.</string>
-    <string name="lesson_body4" translatable="false"><b>Eat Mindfully:</b> Avoid wasting food.</string>
-    <string name="lesson_body5" translatable="false"><b>Reduce, Reuse, Recycle:</b> Think before you buy.</string>
+    <string name="lesson_body2" translatable="false">Conserve Energy:Lessen your electricity use.</string>
+    <string name="lesson_body3" translatable="false">Travel Smarter:Walk, bike, or use public transportation when possible.</string>
+    <string name="lesson_body4" translatable="false">Eat MindfullAvoid wasting food.</string>
+    <string name="lesson_body5" translatable="false">Reduce, Reuse, Recycle:Think before you buy.</string>
     <string name="next_button" translatable="false">Next</string>
 
     /Quiz Strings
@@ -40,7 +38,7 @@
     <string name="question_2" translatable="false">Which of the following activities would have the largest indirect carbon footprint?</string>
     <string name="Q2.C1" translatable="false">Turning on a light in your room.</string>
     <string name="Q2.C2" translatable="false">Riding your bike to a friend\'s house.</string>
-    <string name="Q2.C3" translatable="false">Buying a new smartphone that was manufactured andshipped from another country.</string>
+    <string name="Q2.C3" translatable="false">Buying a new smartphone that was manufactured and shipped from another country.</string>
     <string name="Q2.C4" translatable="false">Taking a short shower.</string>
     <string name="greeting_text" translatable="false">Congratulations!</string>
 
@@ -123,5 +121,25 @@
     <string name="task_2" translatable="false">Walk 10,000 steps today</string>
     <string name="home_done_button" translatable="false">Done</string>"
 
+    <string name="aqua_points_title" translatable="false">Aqua Points</string>
+    <string name="price" translatable="false">100 Aqua Points</string>
+    <string name="blue" translatable="false">Blue Shirt</string>
+    <string name="green" translatable="false">Green Shirt</string>
+    <string name="fedora" translatable="false">Fedora Hat</string>
+    <string name="grey" translatable="false">Grey Polo Shirt</string>
+    <string name="lightpink" translatable="false">Pink Polo Shirt</string>
+    <string name="bibe" translatable="false">Duck Hair Clip"</string>
+    <string name="earn_more" translatable="false">Earn More</string>
+    <string name="start" translatable="false">Start</string>
+    <string name="take_a_quiz" translatable="false">Take a Quiz</string>
+    <string name="take_a_quiz_label" translatable="false">Take\na Quiz</string>
+    <string name="finish_daily_tasks" translatable="false">Finish Daily Tasks</string>
+    <string name="finish_daily_tasks_label" translatable="false">Finish\nDaily Tasks</string>
+    <string name="input_footprint" translatable="false">Input Footprint</string>
+    <string name="input_footprint_label" translatable="false">Input\nFootprint</string>
+    <string name="aqua_points" translatable="false">My Aqua Points</string>
+    <string name="aqua99" translatable="false">99</string>
+    <string name="redeem" translatable="false">Redeem</string>
+    <string name="customize" translatable="false">Customize</string>
 
 </resources>
