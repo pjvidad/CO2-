@@ -91,51 +91,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <ImageView
-        android:id="@+id/imageView6"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/carousel_recycler_view"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:background="#F5F5F5"
-        android:contentDescription="@string/home_event_image_desc"
-        android:scaleType="fitCenter"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintBottom_toTopOf="@+id/pagination_dots"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/events"
-        tools:ignore="ImageContrastCheck" />
-
-    <LinearLayout
-        android:id="@+id/pagination_dots"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6">
-
-        <View
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_margin="6dp"
-            android:background="#AAD7A4" />
-
-        <View
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_margin="6dp"
-            android:background="#CCCCCC" />
-
-        <View
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_margin="6dp"
-            android:background="#CCCCCC" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/events"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

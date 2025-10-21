@@ -49,7 +49,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/tracker_impact_comparison"
         android:textColor="#4CAF50"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/impactValue2"
         app:layout_constraintTop_toBottomOf="@+id/impactValue2" />
 
@@ -106,14 +106,15 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="#FFFFFF"
-                android:clipToPadding="false"
-                android:elevation="2dp"
                 android:orientation="vertical"
                 android:padding="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+
+                android:background="@drawable/card_background"
+                android:elevation="2dp"
+                android:clipToPadding="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
