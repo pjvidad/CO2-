@@ -34,6 +34,19 @@
     <string name="lesson_body5" translatable="false"><b>Reduce, Reuse, Recycle:</b> Think before you buy.</string>
     <string name="next_button" translatable="false">Next</string>
 
+    /Quiz Strings
+    <string name="notif_title" translatable="false">Now that you’ve learned what a Carbon Footprint is, let’s test your knowledge!</string>
+    <string name="question_1" translatable="false">Which among the images classify as an e-waste?</string>
+    <string name="question_2" translatable="false"> Which of the following activities would have the largest indirect carbon footprint?</string>
+    <string name="greeting_1" translatable="false">Congratulations!</string>
+    <string name="rd_home" translatable="false">Proceed to Home</string>
+    <string name="quiz_time" translatable="false">Quiz Time! </string>
+    /Quiz Choices
+    <string name="Q1.C1" translatable="false">Turning on a light in your room.</string>
+    <string name="Q1.C2" translatable="false">Riding your bike to a friend\'s house.</string>
+    <string name="Q1.C3" translatable="false">Buying a new smartphone that was manufactured and shipped from another country.</string>
+    <string name="Q1.C4" translatable="false">Taking a short shower.</string>
+
     /Tracker Strings
     <string name="tracker_today" translatable="false">Today</string>
     <string name="tracker_week" translatable="false">Week</string>
