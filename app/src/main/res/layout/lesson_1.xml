@@ -84,10 +84,10 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="62dp"
         android:layout_height="4dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="11dp"
         android:layout_marginTop="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar3"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
@@ -95,10 +95,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="62dp"
         android:layout_height="4dp"
+        android:layout_marginStart="13dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="175dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/progressBar1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
@@ -106,9 +108,11 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="62dp"
         android:layout_height="4dp"
+        android:layout_marginStart="13dp"
         android:layout_marginEnd="99dp"
         app:layout_constraintBottom_toBottomOf="@+id/userLife"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/progressBar3"
         app:layout_constraintTop_toTopOf="@+id/userLife" />
 
     <ImageView
@@ -125,14 +129,16 @@
         android:id="@+id/lessonTitle"
         android:layout_width="234dp"
         android:layout_height="48dp"
-        android:layout_marginStart="85dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="126dp"
-        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginEnd="89dp"
+        android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="@string/Lesson1"
 
+        android:text="@string/Lesson1"
         android:textColor="#2E4057"
         android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
