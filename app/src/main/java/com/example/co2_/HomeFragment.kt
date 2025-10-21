@@ -1,38 +1,110 @@
 package com.example.co2_
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.co2_.databinding.HomeTaskBinding
 
 class HomeFragment : Fragment() {
+
+    private var _binding: HomeTaskBinding? = null
+    private val binding get() = _binding!!
+
+    private var taskViewToHide: View? = null
+
+    private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            taskViewToHide?.visibility = View.GONE
+        }
+    }
+
+    // The new Photo Picker launcher
+    private val pickVisualMediaLauncher = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        if (uri != null) {
+            // The user has selected an image. The URI is available here.
+            taskViewToHide?.visibility = View.GONE
+        }
+    }
+
+    private val requestCameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            openCamera()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.home_task, container, false)
+    ): View {
+        _binding = HomeTaskBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Find the button within the fragment's view
-        val eventButton: Button = view.findViewById(R.id.eventsButton)
-
-        // Set the click listener for the button
-        eventButton.setOnClickListener {
-            // This is the crucial part for navigation
+        binding.eventsButton.setOnClickListener {
             val eventFragment = EventFragment()
-
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.fragmentContainer,
-                    eventFragment
-                ) // Replace the current fragment with EventFragment
-                .addToBackStack(null) // IMPORTANT: This allows the user to press the back button to return to HomeFragment
+                .replace(R.id.fragmentContainer, eventFragment)
+                .addToBackStack(null)
                 .commit()
         }
+
+        binding.task0Button.setOnClickListener {
+            taskViewToHide = binding.timelineTaskItem0
+            showProofDialog()
+        }
+
+        binding.task1Button.setOnClickListener {
+            taskViewToHide = binding.timelineTaskItem1
+            showProofDialog()
+        }
+    }
+
+    private fun showProofDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Prove your action")
+            .setMessage("Choose where to show your proof.")
+            .setPositiveButton("Camera") { _, _ -> checkCameraPermission() }
+            .setNeutralButton("Gallery") { _, _ -> openGallery() }
+            .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
+            .show()
+    }
+
+    private fun checkCameraPermission() {
+        when {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_GRANTED -> openCamera()
+            else -> requestCameraPermissionLauncher.launch(Manifest.permission.CAMERA)
+        }
+    }
+
+    private fun openCamera() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        takePictureLauncher.launch(intent)
+    }
+
+    private fun openGallery() {
+        // Launch the new Photo Picker
+        pickVisualMediaLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
