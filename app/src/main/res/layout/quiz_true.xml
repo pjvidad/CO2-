@@ -10,6 +10,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="62dp"
         android:layout_height="4dp"
+        android:progress="100"
         android:layout_marginStart="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar10"
         app:layout_constraintStart_toEndOf="@+id/progressBar11"
@@ -37,6 +38,7 @@
         android:layout_width="62dp"
         android:layout_height="4dp"
         android:layout_marginStart="13dp"
+        android:progress="100"
         app:layout_constraintBottom_toBottomOf="@+id/userLife4"
         app:layout_constraintStart_toEndOf="@+id/progressBar9"
         app:layout_constraintTop_toTopOf="@+id/userLife4" />
@@ -88,6 +90,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="62dp"
         android:layout_height="4dp"
+        android:progress="100"
         android:layout_marginStart="11dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar9"
         app:layout_constraintStart_toEndOf="@+id/exitButton4"

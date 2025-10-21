@@ -19,6 +19,7 @@
     <string name="bookTitle1" translatable="false">Trash Travels</string>
     <string name="bookTitle2" translatable="false">CO2 for Kids</string>
     <string name="bookTitle3" translatable="false">Reducing CO2 Footprint</string>
+    <string name="search_books" translatable="false">Search...</string>
 
     /Lesson 1 Strings
     <string name="Lesson1" translatable="false">Lesson 1</string>
@@ -124,7 +125,7 @@
 
     /shop
     <string name="aqua_points_title" translatable="false">Aqua Points</string>
-    <string name="price" translatable="false">100 Aqua Points</string>
+    <string name="price" translatable="false">100</string>
     <string name="blue" translatable="false">Blue Shirt</string>
     <string name="green" translatable="false">Green Shirt</string>
     <string name="fedora" translatable="false">Fedora Hat</string>

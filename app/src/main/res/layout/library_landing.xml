@@ -39,7 +39,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="28dp"
         android:contentDescription="@string/energy_icon"
-        app:layout_constraintBottom_toTopOf="@+id/searchView3"
+        app:layout_constraintBottom_toTopOf="@+id/search_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/energyicon" />
@@ -55,17 +55,37 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView12"
         app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
-    <SearchView
-        android:id="@+id/searchView3"
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/search_bar"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/searchview_border"
+        android:hint="@string/search_books"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/library_title" />
+
+    <com.google.android.material.search.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/search_books"
+        app:layout_anchor="@id/search_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </com.google.android.material.search.SearchView>
+
 
     <!-- Book Item 1 -->
     <LinearLayout
@@ -79,16 +99,32 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView3">
+        app:layout_constraintTop_toBottomOf="@+id/search_bar">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/bookImage0"
+        <FrameLayout
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-            android:contentDescription="@string/lib_book_0"
-            app:srcCompat="@drawable/thecarboncycle" />
+            android:layout_height="100dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/bookImage0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                android:contentDescription="@string/lib_book_0"
+                app:srcCompat="@drawable/thecarboncycle" />
+
+            <ImageView
+                android:id="@+id/check_icon_0"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:contentDescription="Completed"
+                app:srcCompat="@android:drawable/ic_menu_myplaces"
+                app:tint="@android:color/white" />
+
+        </FrameLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bookTitle0"
@@ -218,6 +254,7 @@
 
     <!-- Book Item 4 -->
     <LinearLayout
+        android:id="@+id/linearLayout6" 
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

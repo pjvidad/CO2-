@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.co2_.databinding.QuizNotifBinding
 
 class QuizNotifFragment : Fragment() {
@@ -37,16 +38,16 @@ class QuizNotifFragment : Fragment() {
 
         // Add click listener for the exit button
         binding.exitButton2.setOnClickListener {
-            // Go back to the previous screen
-            requireActivity().supportFragmentManager.popBackStack()
+            // Send a result to the parent fragment (BookFragment)
+            parentFragmentManager.setFragmentResult("lesson_exit", Bundle())
+            // Pop the back stack all the way back to the library page
+            requireActivity().supportFragmentManager.popBackStack("library_page", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Show the bottom navigation bar again when the fragment is destroyed
-        val bottomNav = requireActivity().findViewById<View>(R.id.bottomNav)
-        bottomNav.visibility = View.VISIBLE
         _binding = null
+        // The navigation bar is made visible by the parent fragment (BookFragment)
     }
 }
