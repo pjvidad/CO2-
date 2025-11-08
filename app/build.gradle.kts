@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.viewpager2)
     implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
