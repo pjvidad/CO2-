@@ -152,4 +152,8 @@
     <string name="add_footprint_hint_amount" translatable="false">Amount (e.g., miles, kWh)</string>
     <string name="add_footprint_category_title" translatable="false">Category</string>
     <string name="add_footprint_button" translatable="false">Add Entry</string>
+    <string name="default_web_client_id">935965368269-k3f3injcogoqta2e02ban1js3qcj2tar.apps.googleusercontent.com</string>
+    <string name="view_map" translatable="false">>Map</string>
+    <string name="close" translatable="false">Close</string>
+    <string name="mrf_locations" translatable="false">MRF Locations</string>
 </resources>

@@ -10,7 +10,6 @@ import com.example.co2_.databinding.TrackerDailyBinding
 class TrackerFragment : Fragment() {
 
     private var _binding: TrackerDailyBinding? = null
-    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -27,6 +26,11 @@ class TrackerFragment : Fragment() {
         binding.btnAdd2.setOnClickListener {
             val addEntryFragment = AddEntryFragment()
             addEntryFragment.show(parentFragmentManager, "AddEntryDialog")
+        }
+
+        binding.fabMap.setOnClickListener {
+            val mapFragment = TrackerMapFragment()
+            mapFragment.show(parentFragmentManager, "TrackerMapDialog")
         }
     }
 

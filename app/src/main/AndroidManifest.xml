@@ -16,9 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CO2">
 
-        <activity
-            android:name=".SignUp"
-            android:exported="false" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBXJpwJbRYvSyN6lz5CN3x9QsWDzCy0zr4" />
 
         <activity
             android:name=".SignInActivity"
