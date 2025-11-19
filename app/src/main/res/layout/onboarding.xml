@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<!--    //onboarding, name, email, bday, password
+
+new view: forgot password -->
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/card_bg"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="193dp">
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="text"
+            android:labelFor="@id/etEmail"
+            android:text="@string/name_input"
+            android:textColor="#FFFFFF"
+            tools:ignore="LabelFor,TextFields" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/userNameInput"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/sample_name"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/montserrat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            />
+        <EditText
+            android:id="@+id/userDOB"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="text"
+            android:labelFor="@id/etEmail"
+            android:text="@string/dob_input"
+
+            android:textColor="#FFFFFF"
+            tools:ignore="LabelFor,TextFields" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/sample_dob"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/montserrat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/hintEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="text"
+            android:text="@string/email_input"
+            android:textColor="#FFFFFF"
+            tools:ignore="LabelFor,TextFields" />
+
+        <!--  -->
+        <EditText
+            android:id="@+id/inputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="@string/sample_email"
+            android:drawableStart="@android:drawable/ic_dialog_email"
+            android:background="@drawable/input_bg"
+            android:fontFamily="@font/montserrat"/>
+
+        <EditText
+            android:id="@+id/hintPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="text"
+            android:text="@string/password_input"
+            android:textColor="#FFFFFF"
+            tools:ignore="LabelFor,TextFields" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:autofillHints="password"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@android:drawable/ic_lock_lock"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColorHint="#2E2E2E" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/onboarding_greeting"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/createAccButton"
+        android:layout_width="343dp"
+        android:layout_height="51dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#2E4057"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingTop="6dp"
+        android:text="@string/create_button"
+        android:textColor="#AEF78E"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="732dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

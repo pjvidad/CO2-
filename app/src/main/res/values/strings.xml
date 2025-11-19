@@ -156,4 +156,20 @@
     <string name="view_map" translatable="false">>Map</string>
     <string name="close" translatable="false">Close</string>
     <string name="mrf_locations" translatable="false">MRF Locations</string>
+
+    /Onboarding Texts
+    <string name="onboarding_greeting" translatable="false"> Let\'s get you started! </string>
+    <string name="name_input" translatable="false"> Name </string>
+    <string name="dob_input" translatable="false"> Date of Birth </string>
+    <string name="email_input" translatable="false"> Email Address </string>
+    <string name="password_input" translatable="false"> Password </string>
+    <string name="create_button" translatable="false"> Create Account </string>
+    <string name="sample_name" translatable="false"> Juan Dela Cruz </string>
+    <string name="sample_dob" translatable="false"> 01/01/2000 </string>
+    <string name="sample_email" translatable="false"> who1@examplepetstore.com </string>
+    <string name="sample_password" translatable="false"> password </string>
+
+    /Password Reset
+    <string name="reset_pass_title" translatable="false">Enter your email address and we\'ll send you a link to reset your password</string>
+    <string name="reset_button" translatable="false"> Send Reset Code</string>
 </resources>
