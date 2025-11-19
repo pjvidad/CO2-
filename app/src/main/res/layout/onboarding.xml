@@ -6,20 +6,25 @@
     android:layout_height="match_parent">
 
 
-<!--    //onboarding, name, email, bday, password
+    <!--    //onboarding, name, email, bday, password
 
 new view: forgot password -->
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="29dp"
         android:background="@drawable/card_bg"
         android:elevation="8dp"
         android:orientation="vertical"
         android:padding="20dp"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="193dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <!-- Email -->
         <EditText
@@ -38,15 +43,15 @@ new view: forgot password -->
         <!-- Password -->
         <EditText
             android:id="@+id/userNameInput"
-            android:ems="10"
-            android:inputType="text"
-            android:text="@string/sample_name"
-            android:background="@drawable/input_bg"
-            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
-            />
+            android:background="@drawable/input_bg"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="text"
+            android:text="@string/sample_name" />
+
         <EditText
             android:id="@+id/userDOB"
             android:layout_width="wrap_content"
@@ -63,14 +68,14 @@ new view: forgot password -->
 
         <EditText
             android:id="@+id/editTextText3"
-            android:ems="10"
-            android:inputType="text"
-            android:text="@string/sample_dob"
-            android:background="@drawable/input_bg"
-            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/input_bg"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="text"
+            android:text="@string/sample_dob" />
 
         <EditText
             android:id="@+id/hintEmail"
@@ -90,12 +95,12 @@ new view: forgot password -->
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="@string/sample_email"
-            android:drawableStart="@android:drawable/ic_dialog_email"
             android:background="@drawable/input_bg"
-            android:fontFamily="@font/montserrat"/>
+            android:drawableStart="@android:drawable/ic_dialog_email"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:inputType="textEmailAddress"
+            android:text="@string/sample_email" />
 
         <EditText
             android:id="@+id/hintPassword"
@@ -129,12 +134,14 @@ new view: forgot password -->
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="66dp"
         android:layout_marginTop="96dp"
+        android:layout_marginEnd="67dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="@string/onboarding_greeting"
         android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,12 +150,16 @@ new view: forgot password -->
         android:layout_width="343dp"
         android:layout_height="51dp"
         android:layout_gravity="center"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="34dp"
         android:backgroundTint="#2E4057"
         android:fontFamily="@font/montserrat_medium"
         android:paddingTop="6dp"
         android:text="@string/create_button"
         android:textColor="#AEF78E"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="732dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
