@@ -70,10 +70,19 @@ class SignInActivity : AppCompatActivity() {
                     Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
-                    // --- TODO: Implement standard email/password sign-in with Firebase ---
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Toast.makeText(
+                                    baseContext, "Authentication failed.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                 }
             }
         }
