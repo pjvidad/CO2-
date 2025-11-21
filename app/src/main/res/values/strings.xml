@@ -10,6 +10,7 @@
     <string name="google" translatable="false">Google</string>
     <string name="email_hint" translatable="false">example@example.com</string>
     <string name="password_hint" translatable="false">******</string>
+    <string name="forgot_password" translatable="false"><u>Forgot password?</u></string>
 
     /Library Strings
     <string name="today_tasks" translatable="false">Today\'s Tasks</string>
@@ -171,5 +172,7 @@
 
     /Password Reset
     <string name="reset_pass_title" translatable="false">Enter your email address and we\'ll send you a link to reset your password</string>
-    <string name="reset_button" translatable="false"> Send Reset Code</string>
+    <string name="reset_button" translatable="false"> Send Reset Link</string>
+    <string name="continue_with_google" translatable="false">Continue with Google</string>
+    <string name="password_reset" translatable="false">Password Reset</string>
 </resources>

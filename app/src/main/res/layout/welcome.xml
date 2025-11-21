@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#61439E80">
+    android:background="@drawable/gradient_background">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,7 +26,8 @@
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/ic_logo"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            android:elevation="4dp"/>
 
         <TextView
             android:id="@+id/app_name"
@@ -38,7 +39,12 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#66A182"
             android:textSize="56sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:shadowColor="#80000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:elevation="4dp"/>
 
         <Button
             android:id="@+id/bookTitle0"
@@ -51,6 +57,7 @@
             android:paddingTop="6dp"
             android:text="@string/welcome_btn"
             android:textColor="#AEF78E"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:elevation="4dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

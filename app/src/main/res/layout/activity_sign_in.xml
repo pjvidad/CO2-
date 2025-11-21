@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#61439E80">
+    android:background="@drawable/gradient_background">
 
     <!-- Background Gradient -->
     <LinearLayout
@@ -42,18 +42,14 @@
             android:padding="20dp">
 
             <!-- Email -->
-            <EditText
+            <TextView
                 android:id="@+id/hintEmail"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:autofillHints=""
-                android:ems="10"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat"
-                android:inputType="text"
-                android:labelFor="@id/etEmail"
                 android:text="@string/email"
-                android:textColor="#FFFFFF"
-                tools:ignore="LabelFor,TextFields" />
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/etEmail"
@@ -71,17 +67,14 @@
                 tools:ignore="LabelFor,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
             <!-- Password -->
-            <EditText
+            <TextView
                 android:id="@+id/hintPassword"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:autofillHints=""
-                android:ems="10"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat"
-                android:inputType="text"
                 android:text="@string/password"
-                android:textColor="#FFFFFF"
-                tools:ignore="LabelFor,TextFields" />
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/etPassword"
@@ -96,6 +89,18 @@
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColorHint="#2E2E2E" />
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/forgot_password"
+                android:textColor="@android:color/white" />
 
             <!-- Log in button -->
             <Button
@@ -130,7 +135,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Sign in with Google"
+                android:text="@string/continue_with_google"
                 android:textColor="@android:color/white"
                 app:backgroundTint="#333333"
                 app:cornerRadius="25dp"

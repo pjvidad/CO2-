@@ -14,6 +14,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -51,6 +52,10 @@ class SignInActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        binding.tvForgotPassword.setOnClickListener {
+            startActivity(Intent(this, PasswordResetActivity::class.java))
+        }
+
         // Google sign-in button
         binding.btnGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
@@ -73,14 +78,26 @@ class SignInActivity : AppCompatActivity() {
                     auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
-                                val intent = Intent(this, MainActivity::class.java)
-                                startActivity(intent)
-                                finish()
+                                val user = auth.currentUser
+                                if (user != null && user.isEmailVerified) {
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    Toast.makeText(baseContext, "Please verify your email address.", Toast.LENGTH_SHORT).show()
+                                    auth.signOut()
+                                }
                             } else {
-                                Toast.makeText(
-                                    baseContext, "Authentication failed.",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                if (task.exception is FirebaseAuthInvalidUserException) {
+                                    val intent = Intent(this, OnboardingActivity::class.java)
+                                    intent.putExtra("EMAIL", email)
+                                    startActivity(intent)
+                                } else {
+                                    Toast.makeText(
+                                        baseContext, "Authentication failed.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             }
                         }
                 }
@@ -93,11 +110,19 @@ class SignInActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+                    val isNewUser = task.result?.additionalUserInfo?.isNewUser ?: false
                     val user = auth.currentUser
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    if (isNewUser) {
+                        val intent = Intent(this, OnboardingActivity::class.java)
+                        intent.putExtra("EMAIL", user?.email)
+                        intent.putExtra("IS_GOOGLE_SIGN_IN", true)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
