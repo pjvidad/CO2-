@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="185dp"
+        android:paddingTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,26 +25,26 @@
             android:layout_height="160dp"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
+            android:elevation="4dp"
             app:srcCompat="@drawable/ic_logo"
-            tools:ignore="ImageContrastCheck"
-            android:elevation="4dp"/>
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:elevation="4dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#66A182"
-            android:textSize="56sp"
-            tools:ignore="TextContrastCheck"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="3"
-            android:elevation="4dp"/>
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="#66A182"
+            android:textSize="56sp"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/bookTitle0"
@@ -53,11 +53,11 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:backgroundTint="#2E4057"
+            android:elevation="4dp"
             android:fontFamily="@font/montserrat_medium"
             android:paddingTop="6dp"
             android:text="@string/welcome_btn"
             android:textColor="#AEF78E"
-            android:textSize="17sp"
-            android:elevation="4dp"/>
+            android:textSize="17sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

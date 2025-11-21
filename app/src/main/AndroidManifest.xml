@@ -25,6 +25,16 @@
             android:exported="false"
             android:noHistory="true" />
 
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
+        <activity
+            android:name=".PasswordResetActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
         <!-- Welcome screen (launcher / first screen) -->
         <activity
             android:name=".WelcomeActivity"

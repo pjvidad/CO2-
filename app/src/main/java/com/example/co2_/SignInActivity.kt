@@ -13,17 +13,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.Scope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import java.util.Locale
 
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     private val googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
@@ -44,11 +48,13 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = Firebase.auth
+        db = FirebaseFirestore.getInstance()
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id)) // Make sure this is in your strings.xml
             .requestEmail()
+            .requestScopes(Scope("https://www.googleapis.com/auth/user.birthday.read"))
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
@@ -111,13 +117,42 @@ class SignInActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val isNewUser = task.result?.additionalUserInfo?.isNewUser ?: false
-                    val user = auth.currentUser
+                    val user = auth.currentUser!!
                     if (isNewUser) {
-                        val intent = Intent(this, OnboardingActivity::class.java)
-                        intent.putExtra("EMAIL", user?.email)
-                        intent.putExtra("IS_GOOGLE_SIGN_IN", true)
-                        startActivity(intent)
-                        finish()
+                        var dob = ""
+                        try {
+                            @Suppress("UNCHECKED_CAST")
+                            val birthdays = task.result?.additionalUserInfo?.profile?.get("birthdays") as? List<Map<String, Any>>
+                            if (birthdays != null && birthdays.isNotEmpty()) {
+                                @Suppress("UNCHECKED_CAST")
+                                val date = birthdays[0]["date"] as? Map<String, Double>
+                                if (date != null) {
+                                    val year = date["year"]?.toInt()
+                                    val month = date["month"]?.toInt()
+                                    val day = date["day"]?.toInt()
+                                    if (year != null && month != null && day != null) {
+                                        dob = String.format(Locale.US, "%02d/%02d/%04d", month, day, year)
+                                    }
+                                }
+                            }
+                        } catch(e: Exception) {
+                            Log.e("SignInActivity", "Error parsing birthday", e)
+                        }
+
+                        val userMap = hashMapOf(
+                            "name" to user.displayName,
+                            "date_of_birth" to dob,
+                            "email" to user.email,
+                            "profile_picture" to user.photoUrl.toString(),
+                            "aqua_points" to 0
+                        )
+                        db.collection("users").document(user.uid).set(userMap).addOnSuccessListener {
+                            val intent = Intent(this, OnboardingActivity::class.java)
+                            intent.putExtra("EMAIL", user.email)
+                            intent.putExtra("IS_GOOGLE_SIGN_IN", true)
+                            startActivity(intent)
+                            finish()
+                        }
                     } else {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)

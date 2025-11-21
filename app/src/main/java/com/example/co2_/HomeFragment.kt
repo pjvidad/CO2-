@@ -15,7 +15,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.co2_.databinding.HomeTaskBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
@@ -23,6 +26,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var taskViewToHide: View? = null
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -61,6 +67,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        loadUserData()
+
         binding.eventsButton.setOnClickListener {
             val eventFragment = EventFragment()
             requireActivity().supportFragmentManager.beginTransaction()
@@ -77,6 +88,25 @@ class HomeFragment : Fragment() {
         binding.task1Button.setOnClickListener {
             taskViewToHide = binding.timelineTaskItem1
             showProofDialog()
+        }
+    }
+
+    private fun loadUserData() {
+        val user = auth.currentUser
+        if (user != null) {
+            db.collection("users").document(user.uid).get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        binding.username.text = document.getString("name")
+                        val photoUrl = document.getString("profile_picture")
+                        if (!photoUrl.isNullOrEmpty()) {
+                            Glide.with(this).load(photoUrl).into(binding.profileImage)
+                        }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(requireContext(), "Error getting user data: ${exception.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 

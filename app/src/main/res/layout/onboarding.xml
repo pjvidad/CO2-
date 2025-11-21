@@ -6,10 +6,46 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background">
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat_black"
+        android:gravity="center"
+        android:text="@string/onboarding_greeting"
+        android:textColor="#2E4057"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    //onboarding, name, email, bday, password
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:padding="2dp"
+        android:src="@drawable/circle_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="2dp" />
 
-new view: forgot password -->
+    <ImageButton
+        android:id="@+id/uploadPhotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-32dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Upload profile picture"
+        android:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+        app:layout_constraintStart_toEndOf="@+id/profileImageView" />
 
     <LinearLayout
         android:id="@+id/linearLayout7"
@@ -17,7 +53,7 @@ new view: forgot password -->
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="29dp"
         android:background="@drawable/card_bg"
         android:elevation="8dp"
@@ -25,23 +61,16 @@ new view: forgot password -->
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12">
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView">
 
-        <!-- Email -->
-        <EditText
-            android:id="@+id/userName"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:autofillHints=""
-            android:ems="10"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:inputType="text"
-            android:labelFor="@id/etEmail"
             android:text="@string/name_input"
             android:textColor="#FFFFFF"
-            tools:ignore="LabelFor,TextFields" />
+            android:textSize="20sp" />
 
-        <!-- Password -->
         <EditText
             android:id="@+id/userNameInput"
             android:layout_width="match_parent"
@@ -50,47 +79,38 @@ new view: forgot password -->
             android:background="@drawable/input_bg"
             android:ems="10"
             android:fontFamily="@font/montserrat"
-            android:inputType="text"
-            android:text="@string/sample_name" />
+            android:hint="@string/sample_name"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/dob_input"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/userDOB"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:fontFamily="@font/montserrat"
-            android:inputType="text"
-            android:labelFor="@id/etEmail"
-            android:text="@string/dob_input"
-
-            android:textColor="#FFFFFF"
-            tools:ignore="LabelFor,TextFields" />
-
-        <EditText
-            android:id="@+id/editTextText3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/input_bg"
+            android:clickable="true"
             android:ems="10"
+            android:focusable="false"
             android:fontFamily="@font/montserrat"
-            android:inputType="text"
-            android:text="@string/sample_dob" />
+            android:hint="@string/sample_dob"
+            android:inputType="none" />
 
-        <EditText
-            android:id="@+id/hintEmail"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:autofillHints=""
-            android:ems="10"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:inputType="text"
             android:text="@string/email_input"
             android:textColor="#FFFFFF"
-            tools:ignore="LabelFor,TextFields" />
+            android:textSize="20sp" />
 
-        <!--  -->
         <EditText
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"
@@ -100,20 +120,16 @@ new view: forgot password -->
             android:drawableStart="@android:drawable/ic_dialog_email"
             android:ems="10"
             android:fontFamily="@font/montserrat"
-            android:inputType="textEmailAddress"
-            android:text="@string/sample_email" />
+            android:hint="@string/sample_email"
+            android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/hintPassword"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:autofillHints=""
-            android:ems="10"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:inputType="text"
             android:text="@string/password_input"
             android:textColor="#FFFFFF"
-            tools:ignore="LabelFor,TextFields" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -131,28 +147,13 @@ new view: forgot password -->
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="67dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:gravity="center"
-        android:text="@string/onboarding_greeting"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/createAccButton"
         android:layout_width="343dp"
         android:layout_height="51dp"
         android:layout_gravity="center"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="34dp"
         android:backgroundTint="#2E4057"
         android:fontFamily="@font/montserrat_medium"
