@@ -84,7 +84,7 @@ class SignInActivity : AppCompatActivity() {
                     auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
-                                val user = auth.currentUser
+                                val user = task.result?.user
                                 if (user != null && user.isEmailVerified) {
                                     val intent = Intent(this, MainActivity::class.java)
                                     startActivity(intent)
