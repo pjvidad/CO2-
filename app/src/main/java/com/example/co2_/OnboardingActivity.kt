@@ -2,6 +2,7 @@ package com.example.co2_
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
@@ -53,7 +54,9 @@ class OnboardingActivity : AppCompatActivity() {
                     fixAspectRatio = true,
                     aspectRatioX = 1,
                     aspectRatioY = 1,
-                    guidelines = CropImageView.Guidelines.ON
+                    guidelines = CropImageView.Guidelines.ON,
+                    outputCompressFormat = Bitmap.CompressFormat.JPEG,
+                    outputCompressQuality = 80
                 )
             )
             cropImageLauncher.launch(cropOptions)
@@ -175,7 +178,6 @@ class OnboardingActivity : AppCompatActivity() {
                             val firebaseUser = auth.currentUser!!
                             firebaseUser.sendEmailVerification().addOnCompleteListener { emailTask ->
                                 if(emailTask.isSuccessful){
-                                    Toast.makeText(this, "Verification email sent.", Toast.LENGTH_SHORT).show()
                                     saveNewUserData(firebaseUser, name, dob, currentEmail)
                                 } else {
                                     Toast.makeText(this, "Failed to send verification email. Please try again.", Toast.LENGTH_LONG).show()

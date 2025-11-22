@@ -2,11 +2,13 @@ package com.example.co2_
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.co2_.databinding.WelcomeBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class WelcomeActivity : AppCompatActivity() {
+
+    private lateinit var binding: WelcomeBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,19 +16,19 @@ class WelcomeActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        // Check if user is already signed in
         if (auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            return
+            // User is signed in, so navigate to MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // Finish WelcomeActivity so the user can't go back to it
+            return // Skip the rest of the onCreate method
         }
 
-        setContentView(R.layout.welcome)
+        binding = WelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // find the button by its ID (make sure it's the same in welcome.xml)
-        val btnGetStarted = findViewById<Button>(R.id.bookTitle0)
-
-        // set click listener
-        btnGetStarted.setOnClickListener {
+        binding.bookTitle0.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }

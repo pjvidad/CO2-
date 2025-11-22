@@ -1,15 +1,17 @@
 package com.example.co2_
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import com.example.co2_.databinding.ShopRedeemBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ListenerRegistration
 
 class ShopRedeemFragment : Fragment() {
 
@@ -18,7 +20,6 @@ class ShopRedeemFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-    private var aquaPointsListener: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +35,8 @@ class ShopRedeemFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        listenForAquaPointsChanges()
+        loadCachedAquaPoints()
+        loadAquaPoints()
 
         // --- Main Navigation ---
         binding.buttonCustomize.setOnClickListener {
@@ -91,27 +93,45 @@ class ShopRedeemFragment : Fragment() {
         }
     }
 
-    private fun listenForAquaPointsChanges() {
-        val userId = auth.currentUser?.uid ?: return
+    private fun loadCachedAquaPoints() {
+        val sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val aquaPoints = sharedPreferences.getInt("aqua_points", 0)
+        binding.aquaPointsValue.text = aquaPoints.toString()
+    }
 
-        aquaPointsListener?.remove() // Avoid attaching multiple listeners
-        aquaPointsListener = db.collection("users").document(userId)
-            .addSnapshotListener { document, error ->
-                if (error != null) {
-                    // Handle error
-                    return@addSnapshotListener
-                }
+    private fun loadAquaPoints() {
+        val userId = auth.currentUser?.uid
+        if (userId == null) {
+            navigateToWelcome()
+            return
+        }
 
-                if (document != null && document.exists()) {
+        db.collection("users").document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (isAdded && document != null && document.exists()) {
                     val aquaPoints = document.getLong("aqua_points")?.toInt() ?: 0
                     binding.aquaPointsValue.text = aquaPoints.toString()
-                }
+
+                    requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE).edit {
+                        putInt("aqua_points", aquaPoints)
+                    }
+                } 
             }
+    }
+
+    private fun navigateToWelcome() {
+        if (!isAdded || activity?.isFinishing == true) {
+            return
+        }
+        val intent = Intent(activity, WelcomeActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        activity?.finish()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        aquaPointsListener?.remove() // Important: Remove the listener to prevent memory leaks
         _binding = null
     }
 }

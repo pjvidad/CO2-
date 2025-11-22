@@ -112,7 +112,7 @@ class SignInActivity : AppCompatActivity() {
                                         startActivity(intent)
                                     }
                                     is FirebaseAuthInvalidCredentialsException -> {
-                                        Toast.makeText(baseContext, "Email/password doesn\'t match.", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(baseContext, "Email/password doesn't match.", Toast.LENGTH_SHORT).show()
                                     }
                                     else -> {
                                         Toast.makeText(baseContext, "Authentication failed: ${'$'}{task.exception?.message}", Toast.LENGTH_SHORT).show()
