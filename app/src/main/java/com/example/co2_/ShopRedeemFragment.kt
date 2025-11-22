@@ -7,11 +7,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.co2_.databinding.ShopRedeemBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
 class ShopRedeemFragment : Fragment() {
 
     private var _binding: ShopRedeemBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private var aquaPointsListener: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +30,11 @@ class ShopRedeemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        listenForAquaPointsChanges()
 
         // --- Main Navigation ---
         binding.buttonCustomize.setOnClickListener {
@@ -79,8 +91,27 @@ class ShopRedeemFragment : Fragment() {
         }
     }
 
+    private fun listenForAquaPointsChanges() {
+        val userId = auth.currentUser?.uid ?: return
+
+        aquaPointsListener?.remove() // Avoid attaching multiple listeners
+        aquaPointsListener = db.collection("users").document(userId)
+            .addSnapshotListener { document, error ->
+                if (error != null) {
+                    // Handle error
+                    return@addSnapshotListener
+                }
+
+                if (document != null && document.exists()) {
+                    val aquaPoints = document.getLong("aqua_points")?.toInt() ?: 0
+                    binding.aquaPointsValue.text = aquaPoints.toString()
+                }
+            }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        aquaPointsListener?.remove() // Important: Remove the listener to prevent memory leaks
         _binding = null
     }
 }

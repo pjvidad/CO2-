@@ -6,14 +6,18 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.canhub.cropper.CropImageContract
+import com.canhub.cropper.CropImageContractOptions
+import com.canhub.cropper.CropImageOptions
+import com.canhub.cropper.CropImageView
 import com.example.co2_.databinding.OnboardingBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.text.SimpleDateFormat
@@ -29,10 +33,30 @@ class OnboardingActivity : AppCompatActivity() {
     private val calendar = Calendar.getInstance()
     private var imageUri: Uri? = null
 
+    private val cropImageLauncher = registerForActivityResult(CropImageContract()) { result ->
+        if (result.isSuccessful) {
+            val croppedUri = result.uriContent
+            croppedUri?.let {
+                imageUri = it
+                Glide.with(this).load(it).into(binding.profileImageView)
+            }
+        } else {
+            val exception = result.error
+            Toast.makeText(this, "Image cropping failed: ${exception?.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private val selectImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let {
-            imageUri = it
-            Glide.with(this).load(it).into(binding.profileImageView)
+            val cropOptions = CropImageContractOptions(
+                uri = it, cropImageOptions = CropImageOptions(
+                    fixAspectRatio = true,
+                    aspectRatioX = 1,
+                    aspectRatioY = 1,
+                    guidelines = CropImageView.Guidelines.ON
+                )
+            )
+            cropImageLauncher.launch(cropOptions)
         }
     }
 
@@ -74,7 +98,7 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
 
-        if(!isGoogleSignIn) {
+        if (!isGoogleSignIn) {
             loadProfileImage()
         }
     }
@@ -148,9 +172,14 @@ class OnboardingActivity : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(currentEmail, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val firebaseUser = auth.currentUser
-                            firebaseUser?.let {
-                                uploadImageAndSaveData(it.uid, name, dob, currentEmail)
+                            val firebaseUser = auth.currentUser!!
+                            firebaseUser.sendEmailVerification().addOnCompleteListener { emailTask ->
+                                if(emailTask.isSuccessful){
+                                    Toast.makeText(this, "Verification email sent.", Toast.LENGTH_SHORT).show()
+                                    saveNewUserData(firebaseUser, name, dob, currentEmail)
+                                } else {
+                                    Toast.makeText(this, "Failed to send verification email. Please try again.", Toast.LENGTH_LONG).show()
+                                }
                             }
                         } else {
                             Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
@@ -158,6 +187,44 @@ class OnboardingActivity : AppCompatActivity() {
                     }
             }
         }
+    }
+
+    private fun saveNewUserData(firebaseUser: FirebaseUser, name: String, dob: String, email: String) {
+        if (imageUri != null) {
+            val storageRef = storage.reference.child("profile_pictures/${firebaseUser.uid}")
+            storageRef.putFile(imageUri!!)
+                .addOnSuccessListener { taskSnapshot ->
+                    taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
+                        createNewUserInFirestore(firebaseUser, name, dob, email, uri.toString())
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed to upload image: ${e.message}", Toast.LENGTH_SHORT).show()
+                    createNewUserInFirestore(firebaseUser, name, dob, email, "")
+                }
+        } else {
+            createNewUserInFirestore(firebaseUser, name, dob, email, "")
+        }
+    }
+
+    private fun createNewUserInFirestore(firebaseUser: FirebaseUser, name: String, dob: String, email: String, photoUrl: String) {
+        val userMap = hashMapOf(
+            "name" to name,
+            "date_of_birth" to dob,
+            "email" to email,
+            "profile_picture" to photoUrl,
+            "aqua_points" to 0,
+            "daily_impact" to 0.0,
+            "monthly_impact" to 0.0
+        )
+
+        db.collection("users").document(firebaseUser.uid).set(userMap)
+            .addOnSuccessListener {
+                showVerificationDialog()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(baseContext, "CRITICAL: Failed to save user data: ${e.message}", Toast.LENGTH_LONG).show()
+            }
     }
 
     private fun updateDetailsForGoogleUser() {
@@ -176,74 +243,51 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
 
-        val firebaseUser = auth.currentUser
-        if (firebaseUser == null) {
-            Toast.makeText(this, "User not authenticated. Please sign in again.", Toast.LENGTH_SHORT).show()
-            return
-        }
-
+        val firebaseUser = auth.currentUser!!
         firebaseUser.updatePassword(password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                uploadImageAndSaveData(firebaseUser.uid, name, dob, firebaseUser.email ?: "")
+                handleGoogleUserUpdate(firebaseUser.uid, name, dob)
             } else {
                 Toast.makeText(this, "Failed to set password: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun uploadImageAndSaveData(uid: String, name: String, dob: String, email: String) {
+    private fun handleGoogleUserUpdate(uid: String, name: String, dob: String) {
         if (imageUri != null) {
             val storageRef = storage.reference.child("profile_pictures/$uid")
             storageRef.putFile(imageUri!!)
                 .addOnSuccessListener { taskSnapshot ->
                     taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
-                        updateUserData(uid, name, dob, email, uri.toString()) {
-                            if (auth.currentUser?.isEmailVerified == true) {
-                                val intent = Intent(this, MainActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                startActivity(intent)
-                                finish()
-                            } else {
-                                showVerificationDialog()
-                            }
-                        }
+                        updateUserInFirestore(uid, name, dob, uri.toString())
                     }
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Failed to upload image: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         } else {
-            updateUserData(uid, name, dob, email, auth.currentUser?.photoUrl?.toString() ?: "") {
-                if (auth.currentUser?.isEmailVerified == true) {
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
-                } else {
-                    showVerificationDialog()
-                }
-            }
+            updateUserInFirestore(uid, name, dob, null)
         }
     }
 
-    private fun updateUserData(uid: String, name: String, dob: String, email: String, photoUrl: String, onSuccess: () -> Unit) {
-        val userMap = mapOf(
+    private fun updateUserInFirestore(uid: String, name: String, dob: String, newPhotoUrl: String?) {
+        val userUpdates = mutableMapOf<String, Any>(
             "name" to name,
-            "date_of_birth" to dob,
-            "email" to email,
-            "profile_picture" to photoUrl
+            "date_of_birth" to dob
         )
+        if (newPhotoUrl != null) {
+            userUpdates["profile_picture"] = newPhotoUrl
+        }
 
-        db.collection("users").document(uid)
-            .update(userMap)
+        db.collection("users").document(uid).update(userUpdates)
             .addOnSuccessListener {
-                onSuccess()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(
-                    baseContext, "Failed to save user data: ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(baseContext, "Failed to update user data: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

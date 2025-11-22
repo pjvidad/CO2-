@@ -7,18 +7,23 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.co2_.databinding.ShopCustomizeBinding // Ensure this matches your layout file name
+import com.example.co2_.databinding.ShopCustomizeBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
 class ShopFragment : Fragment() { // This is your Customize screen
 
-    // Stores the resource ID of the *full mascot image with the selected accessory*
     private var selectedMascotImageResId: Int? = null
-    private var lastSelectedIconImageView: ImageView? = null // Tracks the clicked icon
+    private var lastSelectedIconImageView: ImageView? = null
     private var _binding: ShopCustomizeBinding? = null
     private val binding get() = _binding!!
 
-    // Store the resource ID of your default, plain mascot image
-    private val defaultMascotImageResId = R.drawable.el_hewooo // Replace with your actual default mascot drawable
+    private val defaultMascotImageResId = R.drawable.el_hewooo
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private var aquaPointsListener: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,11 @@ class ShopFragment : Fragment() { // This is your Customize screen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        listenForAquaPointsChanges()
+
         binding.buttonRedeem.setOnClickListener {
             val shopRedeemFragment = ShopRedeemFragment()
             parentFragmentManager.beginTransaction()
@@ -38,16 +48,13 @@ class ShopFragment : Fragment() { // This is your Customize screen
                 .commit()
         }
 
-        // *** CRITICAL: Update this map ***
-        // Keys are the ICON ImageView IDs.
-        // Values are the corresponding FULL mascot image (wearing the accessory) drawable IDs.
         val accessoryMap = mapOf(
-            binding.accessoryImageView1.id to R.drawable.mascot_wearing_white,   // Example: R.drawable.mascot_wearing_white
-            binding.accessoryImageView2.id to R.drawable.mascot_wearing_violet,  // Example: R.drawable.mascot_wearing_violet
-            binding.accessoryImageView3.id to R.drawable.mascot_wearing_grey,    // Example: R.drawable.mascot_wearing_grey
-            binding.accessoryImageView4.id to R.drawable.mascot_wearing_blue,    // Example: R.drawable.mascot_wearing_blue
-            binding.accessoryImageView5.id to R.drawable.mascot_wearing_fedora,  // Example: R.drawable.mascot_wearing_fedora
-            binding.accessoryImageView6.id to R.drawable.mascot_wearing_bibe     // Example: R.drawable.mascot_wearing_bibe
+            binding.accessoryImageView1.id to R.drawable.mascot_wearing_white,
+            binding.accessoryImageView2.id to R.drawable.mascot_wearing_violet,
+            binding.accessoryImageView3.id to R.drawable.mascot_wearing_grey,
+            binding.accessoryImageView4.id to R.drawable.mascot_wearing_blue,
+            binding.accessoryImageView5.id to R.drawable.mascot_wearing_fedora,
+            binding.accessoryImageView6.id to R.drawable.mascot_wearing_bibe
         )
 
         val accessoryIconImageViews = accessoryMap.keys.mapNotNull { view.findViewById<ImageView>(it) }
@@ -55,7 +62,6 @@ class ShopFragment : Fragment() { // This is your Customize screen
         val clickListener = View.OnClickListener { clickedIconView ->
             lastSelectedIconImageView?.setBackgroundResource(R.drawable.card_background)
             clickedIconView.setBackgroundResource(R.drawable.selected_card_background)
-            // Store the ID of the full mascot image corresponding to the clicked icon
             selectedMascotImageResId = accessoryMap[clickedIconView.id]
             lastSelectedIconImageView = clickedIconView as ImageView
         }
@@ -66,19 +72,36 @@ class ShopFragment : Fragment() { // This is your Customize screen
 
         binding.buttonDone.setOnClickListener {
             selectedMascotImageResId?.let { fullMascotResId ->
-                // Set the main mascot image to the selected full image
                 binding.mascotImage.setImageResource(fullMascotResId)
                 Toast.makeText(context, "Accessory Applied!", Toast.LENGTH_SHORT).show()
             } ?: run {
-                // If nothing selected, revert to the default mascot image
                 binding.mascotImage.setImageResource(defaultMascotImageResId)
                 Toast.makeText(context, "No accessory selected. Reverting to default.", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    private fun listenForAquaPointsChanges() {
+        val userId = auth.currentUser?.uid ?: return
+
+        aquaPointsListener?.remove() // Avoid attaching multiple listeners
+        aquaPointsListener = db.collection("users").document(userId)
+            .addSnapshotListener { document, error ->
+                if (error != null) {
+                    // Handle error
+                    return@addSnapshotListener
+                }
+
+                if (document != null && document.exists()) {
+                    val aquaPoints = document.getLong("aqua_points")?.toInt() ?: 0
+                    binding.aquaPointsValue.text = aquaPoints.toString()
+                }
+            }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        aquaPointsListener?.remove() // Important: Remove the listener to prevent memory leaks
         _binding = null
     }
 }

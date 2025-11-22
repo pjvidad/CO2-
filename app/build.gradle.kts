@@ -83,7 +83,6 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
 
-
     // Google Maps
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
@@ -92,4 +91,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    // Image Cropper
+    implementation("com.vanniktech:android-image-cropper:4.5.0")
 }

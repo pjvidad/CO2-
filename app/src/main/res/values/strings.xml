@@ -11,6 +11,7 @@
     <string name="email_hint" translatable="false">example@example.com</string>
     <string name="password_hint" translatable="false">******</string>
     <string name="forgot_password" translatable="false"><u>Forgot password?</u></string>
+    <string name="sign_up_link" translatable="false">Don\'t have an account? <b><u>Sign Up</u></b></string>
 
     /Library Strings
     <string name="today_tasks" translatable="false">Today\'s Tasks</string>
@@ -175,4 +176,5 @@
     <string name="reset_button" translatable="false"> Send Reset Link</string>
     <string name="continue_with_google" translatable="false">Continue with Google</string>
     <string name="password_reset" translatable="false">Password Reset</string>
+    <string name="upload_profile_picture" translatable="false">Upload profile picture</string>
 </resources>

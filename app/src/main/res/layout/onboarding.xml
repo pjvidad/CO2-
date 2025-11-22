@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_black"
         android:gravity="center"
         android:text="@string/onboarding_greeting"
@@ -21,6 +30,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImageView"
         android:layout_width="100dp"
@@ -35,117 +47,115 @@
         app:strokeColor="@android:color/white"
         app:strokeWidth="2dp" />
 
-    <ImageButton
-        android:id="@+id/uploadPhotoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-32dp"
-        android:layout_marginBottom="-8dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="Upload profile picture"
-        android:src="@android:drawable/ic_menu_camera"
-        app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
-        app:layout_constraintStart_toEndOf="@+id/profileImageView" />
+            <ImageButton
+                android:id="@+id/uploadPhotoButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="-35dp"
+                android:layout_marginBottom="-15dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/upload_profile_picture"
+                android:src="@android:drawable/ic_menu_camera"
+                app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                app:layout_constraintStart_toEndOf="@+id/profileImageView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="29dp"
-        android:background="@drawable/card_bg"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImageView">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/name_input"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:layout_margin="20dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="29dp"
+            android:background="@drawable/card_bg"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <EditText
-            android:id="@+id/userNameInput"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/input_bg"
-            android:ems="10"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/sample_name"
-            android:inputType="text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/name_input"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/dob_input"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/userNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/input_bg"
+                android:ems="10"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/sample_name"
+                android:inputType="text" />
 
-        <EditText
-            android:id="@+id/userDOB"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/input_bg"
-            android:clickable="true"
-            android:ems="10"
-            android:focusable="false"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/sample_dob"
-            android:inputType="none" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/dob_input"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/email_input"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/userDOB"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/input_bg"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/sample_dob"
+                android:inputType="none" />
 
-        <EditText
-            android:id="@+id/inputEmail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/input_bg"
-            android:drawableStart="@android:drawable/ic_dialog_email"
-            android:ems="10"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/sample_email"
-            android:inputType="textEmailAddress" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/email_input"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/password_input"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/input_bg"
+                android:drawableStart="@android:drawable/ic_dialog_email"
+                android:ems="10"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/sample_email"
+                android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
-            android:autofillHints="password"
-            android:background="@drawable/input_bg"
-            android:drawableStart="@android:drawable/ic_lock_lock"
-            android:fontFamily="@font/montserrat"
-            android:hint="@string/password_hint"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textColorHint="#2E2E2E" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/password_input"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:autofillHints="password"
+                android:background="@drawable/input_bg"
+                android:drawableStart="@android:drawable/ic_lock_lock"
+                android:fontFamily="@font/montserrat"
+                android:hint="@string/password_hint"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColorHint="#2E2E2E" />
+
+        </LinearLayout>
 
     <Button
         android:id="@+id/createAccButton"
@@ -164,4 +174,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

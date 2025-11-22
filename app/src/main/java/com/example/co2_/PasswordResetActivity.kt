@@ -21,6 +21,10 @@ class PasswordResetActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        binding.backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.createAccButton2.setOnClickListener {
             val email = binding.editTextTextEmailAddress2.text.toString().trim()
 

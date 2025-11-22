@@ -2,6 +2,7 @@ package com.example.co2_
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -19,6 +21,7 @@ import com.bumptech.glide.Glide
 import com.example.co2_.databinding.HomeTaskBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
 class HomeFragment : Fragment() {
 
@@ -29,6 +32,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+    private var userDataListener: ListenerRegistration? = null
 
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -68,9 +72,23 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
+
+        if (auth.currentUser == null) {
+            val intent = Intent(requireActivity(), WelcomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            requireActivity().finish()
+            return
+        }
+
         db = FirebaseFirestore.getInstance()
 
-        loadUserData()
+        loadCachedUserData()
+        listenForUserDataChanges()
+
+        binding.profileImage.setOnClickListener { anchorView ->
+            showPopupMenu(anchorView)
+        }
 
         binding.eventsButton.setOnClickListener {
             val eventFragment = EventFragment()
@@ -91,21 +109,68 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun loadUserData() {
+    private fun showPopupMenu(anchorView: View) {
+        val popup = PopupMenu(requireContext(), anchorView)
+        popup.menu.add("Log Out")
+        popup.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.title == "Log Out") {
+                auth.signOut()
+                val sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+                sharedPreferences.edit().clear().apply()
+                val intent = Intent(requireActivity(), WelcomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                requireActivity().finish()
+                true
+            } else {
+                false
+            }
+        }
+        popup.show()
+    }
+
+    private fun loadCachedUserData() {
+        val sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString("user_name", "User")
+        val photoUrl = sharedPreferences.getString("user_photo_url", null)
+
+        binding.username.text = name
+        if (!photoUrl.isNullOrEmpty()) {
+            Glide.with(this).load(photoUrl).into(binding.profileImage)
+        }
+    }
+
+    private fun listenForUserDataChanges() {
         val user = auth.currentUser
         if (user != null) {
-            db.collection("users").document(user.uid).get()
-                .addOnSuccessListener { document ->
-                    if (document != null) {
-                        binding.username.text = document.getString("name")
+            userDataListener?.remove() // Avoid attaching multiple listeners
+            userDataListener = db.collection("users").document(user.uid)
+                .addSnapshotListener { document, error ->
+                    if (error != null) {
+                        Toast.makeText(requireContext(), "Error listening for user data: ${error.message}", Toast.LENGTH_SHORT).show()
+                        return@addSnapshotListener
+                    }
+
+                    if (document != null && document.exists()) {
+                        val name = document.getString("name")
                         val photoUrl = document.getString("profile_picture")
+
+                        // Update UI
+                        binding.username.text = name
                         if (!photoUrl.isNullOrEmpty()) {
                             Glide.with(this).load(photoUrl).into(binding.profileImage)
+                        } else {
+                            binding.profileImage.setImageResource(R.drawable.profile)
+                        }
+
+                        // Save fresh data to local cache
+                        val sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+                        with(sharedPreferences.edit()) {
+                            putString("user_name", name)
+                            putString("user_photo_url", photoUrl)
+                            apply()
                         }
                     }
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(requireContext(), "Error getting user data: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }
@@ -142,6 +207,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        userDataListener?.remove() // Important: Remove the listener to prevent memory leaks
         _binding = null
     }
 }

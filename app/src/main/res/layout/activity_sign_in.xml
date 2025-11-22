@@ -47,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/email"
                 android:textColor="#FFFFFF" />
@@ -142,6 +143,19 @@
                 app:icon="@drawable/ic_google"
                 app:iconSize="25dp"
                 app:iconTint="@null" />
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/montserrat"
+                android:padding="8dp"
+                android:text="@string/sign_up_link"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
     </LinearLayout>

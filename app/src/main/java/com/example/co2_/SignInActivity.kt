@@ -13,8 +13,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.Scope
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -37,7 +37,7 @@ class SignInActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 Log.w("SignInActivity", "Google sign in failed", e)
-                Toast.makeText(this, "Google sign in failed: ${e.statusCode}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Google sign in failed: ${'$'}{e.statusCode}", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -54,12 +54,15 @@ class SignInActivity : AppCompatActivity() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id)) // Make sure this is in your strings.xml
             .requestEmail()
-            .requestScopes(Scope("https://www.googleapis.com/auth/user.birthday.read"))
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.tvForgotPassword.setOnClickListener {
             startActivity(Intent(this, PasswordResetActivity::class.java))
+        }
+
+        binding.tvSignUp.setOnClickListener {
+            startActivity(Intent(this, OnboardingActivity::class.java))
         }
 
         // Google sign-in button
@@ -82,27 +85,38 @@ class SignInActivity : AppCompatActivity() {
                 }
                 else -> {
                     auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this) { task ->
+                        .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                val user = task.result?.user
-                                if (user != null && user.isEmailVerified) {
-                                    val intent = Intent(this, MainActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                } else {
-                                    Toast.makeText(baseContext, "Please verify your email address.", Toast.LENGTH_SHORT).show()
-                                    auth.signOut()
+                                val user = auth.currentUser
+                                user?.reload()?.addOnCompleteListener { reloadTask ->
+                                    if (reloadTask.isSuccessful) {
+                                        val freshUser = auth.currentUser
+                                        if (freshUser != null && freshUser.isEmailVerified) {
+                                            val intent = Intent(this, MainActivity::class.java)
+                                            startActivity(intent)
+                                            finish()
+                                        } else {
+                                            Toast.makeText(baseContext, "Please verify your email address.", Toast.LENGTH_SHORT).show()
+                                            auth.signOut()
+                                        }
+                                    } else {
+                                        Toast.makeText(baseContext, "Failed to check email verification status.", Toast.LENGTH_SHORT).show()
+                                        auth.signOut()
+                                    }
                                 }
                             } else {
-                                if (task.exception is FirebaseAuthInvalidUserException) {
-                                    val intent = Intent(this, OnboardingActivity::class.java)
-                                    intent.putExtra("EMAIL", email)
-                                    startActivity(intent)
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Authentication failed.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                when (task.exception) {
+                                    is FirebaseAuthInvalidUserException -> {
+                                        val intent = Intent(this, OnboardingActivity::class.java)
+                                        intent.putExtra("EMAIL", email)
+                                        startActivity(intent)
+                                    }
+                                    is FirebaseAuthInvalidCredentialsException -> {
+                                        Toast.makeText(baseContext, "Email/password doesn\'t match.", Toast.LENGTH_SHORT).show()
+                                    }
+                                    else -> {
+                                        Toast.makeText(baseContext, "Authentication failed: ${'$'}{task.exception?.message}", Toast.LENGTH_SHORT).show()
+                                    }
                                 }
                             }
                         }
@@ -119,32 +133,14 @@ class SignInActivity : AppCompatActivity() {
                     val isNewUser = task.result?.additionalUserInfo?.isNewUser ?: false
                     val user = auth.currentUser!!
                     if (isNewUser) {
-                        var dob = ""
-                        try {
-                            @Suppress("UNCHECKED_CAST")
-                            val birthdays = task.result?.additionalUserInfo?.profile?.get("birthdays") as? List<Map<String, Any>>
-                            if (birthdays != null && birthdays.isNotEmpty()) {
-                                @Suppress("UNCHECKED_CAST")
-                                val date = birthdays[0]["date"] as? Map<String, Double>
-                                if (date != null) {
-                                    val year = date["year"]?.toInt()
-                                    val month = date["month"]?.toInt()
-                                    val day = date["day"]?.toInt()
-                                    if (year != null && month != null && day != null) {
-                                        dob = String.format(Locale.US, "%02d/%02d/%04d", month, day, year)
-                                    }
-                                }
-                            }
-                        } catch(e: Exception) {
-                            Log.e("SignInActivity", "Error parsing birthday", e)
-                        }
-
                         val userMap = hashMapOf(
                             "name" to user.displayName,
-                            "date_of_birth" to dob,
+                            "date_of_birth" to "",
                             "email" to user.email,
                             "profile_picture" to user.photoUrl.toString(),
-                            "aqua_points" to 0
+                            "aqua_points" to 0,
+                            "daily_impact" to 0.0,
+                            "monthly_impact" to 0.0
                         )
                         db.collection("users").document(user.uid).set(userMap).addOnSuccessListener {
                             val intent = Intent(this, OnboardingActivity::class.java)
@@ -159,7 +155,6 @@ class SignInActivity : AppCompatActivity() {
                         finish()
                     }
                 } else {
-                    // If sign in fails, display a message to the user.
                     Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                 }
             }
