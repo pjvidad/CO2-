@@ -37,7 +37,12 @@ class SignInActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 Log.w("SignInActivity", "Google sign in failed", e)
-                Toast.makeText(this, "Google sign in failed: ${'$'}{e.statusCode}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Google sign in failed: ${e.statusCode}", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+             // Handle the case where the user cancels the sign-in flow
+            if (result.resultCode != RESULT_CANCELED) {
+                Toast.makeText(this, "Google sign in failed.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -67,8 +72,10 @@ class SignInActivity : AppCompatActivity() {
 
         // Google sign-in button
         binding.btnGoogle.setOnClickListener {
-            val signInIntent = googleSignInClient.signInIntent
-            googleSignInLauncher.launch(signInIntent)
+            googleSignInClient.signOut().addOnCompleteListener { 
+                val signInIntent = googleSignInClient.signInIntent
+                googleSignInLauncher.launch(signInIntent)
+            }
         }
 
         // Login button with email and password validation
@@ -115,7 +122,7 @@ class SignInActivity : AppCompatActivity() {
                                         Toast.makeText(baseContext, "Email/password doesn't match.", Toast.LENGTH_SHORT).show()
                                     }
                                     else -> {
-                                        Toast.makeText(baseContext, "Authentication failed: ${'$'}{task.exception?.message}", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             }
@@ -142,7 +149,7 @@ class SignInActivity : AppCompatActivity() {
                             "daily_impact" to 0.0,
                             "monthly_impact" to 0.0
                         )
-                        db.collection("users").document(user.uid).set(userMap).addOnSuccessListener {
+                        db.collection("users").document(user.uid).set(userMap).addOnSuccessListener { 
                             val intent = Intent(this, OnboardingActivity::class.java)
                             intent.putExtra("EMAIL", user.email)
                             intent.putExtra("IS_GOOGLE_SIGN_IN", true)

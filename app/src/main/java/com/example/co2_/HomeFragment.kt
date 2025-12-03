@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -23,6 +24,7 @@ import com.example.co2_.databinding.HomeTaskBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 class HomeFragment : Fragment() {
 
@@ -33,11 +35,20 @@ class HomeFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+    private lateinit var storage: FirebaseStorage
 
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            Toast.makeText(requireContext(), "Image successfully verified.", Toast.LENGTH_SHORT).show()
-            taskViewToHide?.visibility = View.GONE
+            val imageUri = result.data?.data
+            if(imageUri != null) {
+                uploadProofImage(imageUri)
+                Toast.makeText(requireContext(), "Image successfully verified.", Toast.LENGTH_SHORT).show()
+                markTaskAsCompleted()
+                taskViewToHide?.visibility = View.GONE
+                addAquaPoints(50)
+            } else {
+                Toast.makeText(requireContext(), "Could not retrieve image from camera.", Toast.LENGTH_SHORT).show()
+            }
         } else {
             Toast.makeText(requireContext(), "There was no image verified.", Toast.LENGTH_SHORT).show()
         }
@@ -46,8 +57,11 @@ class HomeFragment : Fragment() {
     // The new Photo Picker launcher
     private val pickVisualMediaLauncher = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if (uri != null) {
+            uploadProofImage(uri)
             Toast.makeText(requireContext(), "Image successfully verified.", Toast.LENGTH_SHORT).show()
+            markTaskAsCompleted()
             taskViewToHide?.visibility = View.GONE
+            addAquaPoints(50)
         } else {
             Toast.makeText(requireContext(), "There was no image verified.", Toast.LENGTH_SHORT).show()
         }
@@ -71,6 +85,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+        storage = FirebaseStorage.getInstance()
         val currentUser = auth.currentUser
 
         if (currentUser == null) {
@@ -109,6 +125,14 @@ class HomeFragment : Fragment() {
 
     private fun initializeUI() {
         db = FirebaseFirestore.getInstance()
+
+        val sharedPreferences = requireActivity().getSharedPreferences("task_completion", Context.MODE_PRIVATE)
+        if (sharedPreferences.getBoolean("task_0_completed", false)) {
+            binding.timelineTaskItem0.visibility = View.GONE
+        }
+        if (sharedPreferences.getBoolean("task_1_completed", false)) {
+            binding.timelineTaskItem1.visibility = View.GONE
+        }
 
         loadCachedUserData()
         loadUserData()
@@ -156,6 +180,9 @@ class HomeFragment : Fragment() {
                 requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE).edit {
                     clear()
                 }
+                requireActivity().getSharedPreferences("task_completion", Context.MODE_PRIVATE).edit {
+                    clear()
+                }
                 navigateToWelcome()
                 true
             } else {
@@ -163,6 +190,53 @@ class HomeFragment : Fragment() {
             }
         }
         popup.show()
+    }
+
+    private fun uploadProofImage(imageUri: Uri) {
+        val userId = auth.currentUser?.uid ?: return
+        val fileName = "proof_${System.currentTimeMillis()}.jpg"
+        val storageRef = storage.reference.child("tasks/$userId/$fileName")
+
+        storageRef.putFile(imageUri)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "Proof uploaded successfully!", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Failed to upload proof: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun markTaskAsCompleted() {
+        val taskKey = when (taskViewToHide?.id) {
+            R.id.timeline_task_item_0 -> "task_0_completed"
+            R.id.timeline_task_item_1 -> "task_1_completed"
+            else -> null
+        }
+
+        taskKey?.let {
+            requireActivity().getSharedPreferences("task_completion", Context.MODE_PRIVATE).edit {
+                putBoolean(it, true)
+            }
+        }
+    }
+
+    private fun addAquaPoints(pointsToAdd: Int) {
+        val userId = auth.currentUser?.uid ?: return
+        val userDocRef = db.collection("users").document(userId)
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(userDocRef)
+            val currentPoints = snapshot.getLong("aqua_points")?.toInt() ?: 0
+            val newPoints = currentPoints + pointsToAdd
+            transaction.update(userDocRef, "aqua_points", newPoints)
+
+            requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE).edit {
+                putInt("aqua_points", newPoints)
+            }
+            null
+        }.addOnSuccessListener {
+            Toast.makeText(requireContext(), "+$pointsToAdd Aqua Points!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun loadCachedUserData() {

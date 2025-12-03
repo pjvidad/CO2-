@@ -61,7 +61,6 @@
     <string name="tracker_title" translatable="false">My Carbon Footprint</string>
     <string name="tracker_today_breakdown" translatable="false">Today\'s Breakdown</string>
     <string name="tracker_transport" translatable="false">Transport</string>
-    <string name="tracker_food" translatable="false">Food</string>
     <string name="tracker_shopping" translatable="false">Shopping</string>
     <string name="tracker_energy" translatable="false">Energy</string>
     <string name="tracker_transport_value" translatable="false">3.2 kg</string>
@@ -120,7 +119,7 @@
     <string name="lib_book_3" translatable="false">Book 3</string>"
 
     /taskLibrary
-    <string name="task_0" translatable="false">"Read and take a quiz on the app's library"</string>
+    <string name="task_0" translatable="false">"Read and take a quiz on the app\'s library"</string>
     <string name="task_1" translatable="false">Declutter e-waste in your house.</string>
     <string name="task_2" translatable="false">Walk 10,000 steps today</string>
     <string name="home_done_button" translatable="false">Done</string>"
@@ -177,4 +176,13 @@
     <string name="continue_with_google" translatable="false">Continue with Google</string>
     <string name="password_reset" translatable="false">Password Reset</string>
     <string name="upload_profile_picture" translatable="false">Upload profile picture</string>
+    <string name="mode_of_transport" translatable="false">Mode of Transport</string>
+    <string name="unit" translatable="false">Unit</string>
+    <string name="kilometers" translatable="false">Kilometers</string>
+    <string name="miles" translatable="false">Miles</string>
+    <string name="energy_source" translatable="false">Energy Source</string>
+    <string name="item_category" translatable="false">Item Category</string>
+    <string name="condition" translatable="false">Condition</string>
+    <string name="brand_new" translatable="false">Brand New</string>
+    <string name="ukay_ukay" translatable="false">Ukay-Ukay</string>
 </resources>
