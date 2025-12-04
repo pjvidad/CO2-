@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -25,6 +27,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class HomeFragment : Fragment() {
 
@@ -32,6 +37,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var taskViewToHide: View? = null
+    private var latestTmpUri: Uri? = null
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
@@ -39,15 +45,12 @@ class HomeFragment : Fragment() {
 
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            val imageUri = result.data?.data
-            if(imageUri != null) {
-                uploadProofImage(imageUri)
+            latestTmpUri?.let {
+                uploadProofImage(it)
                 Toast.makeText(requireContext(), "Image successfully verified.", Toast.LENGTH_SHORT).show()
                 markTaskAsCompleted()
                 taskViewToHide?.visibility = View.GONE
-                addAquaPoints(50)
-            } else {
-                Toast.makeText(requireContext(), "Could not retrieve image from camera.", Toast.LENGTH_SHORT).show()
+                addAquaPoints(10)
             }
         } else {
             Toast.makeText(requireContext(), "There was no image verified.", Toast.LENGTH_SHORT).show()
@@ -141,7 +144,7 @@ class HomeFragment : Fragment() {
             showPopupMenu(anchorView)
         }
 
-        binding.eventsButton.setOnClickListener {
+        binding.eventsButton.setOnClickListener { 
             val eventFragment = EventFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, eventFragment)
@@ -304,8 +307,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun openCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        takePictureLauncher.launch(intent)
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir: File? = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val photoFile: File? = try {
+            File.createTempFile(
+                "JPEG_${timeStamp}_",
+                ".jpg",
+                storageDir
+            )
+        } catch (ex: java.io.IOException) {
+            null
+        }
+
+        photoFile?.also { 
+            latestTmpUri = FileProvider.getUriForFile(
+                requireContext(),
+                "com.example.co2_.fileprovider",
+                it
+            )
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, latestTmpUri)
+            takePictureLauncher.launch(takePictureIntent)
+        }
     }
 
     private fun openGallery() {

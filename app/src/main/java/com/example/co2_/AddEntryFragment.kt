@@ -2,6 +2,7 @@ package com.example.co2_
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.core.content.edit
 import androidx.fragment.app.DialogFragment
 import com.example.co2_.databinding.FragmentAddEntryBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class AddEntryFragment : DialogFragment() {
@@ -76,6 +78,10 @@ class AddEntryFragment : DialogFragment() {
             binding.transportOptionsLayout.visibility = if (checkedId == R.id.chip_transport) View.VISIBLE else View.GONE
             binding.energyOptionsLayout.visibility = if (checkedId == R.id.chip_energy) View.VISIBLE else View.GONE
             binding.shoppingOptionsLayout.visibility = if (checkedId == R.id.chip_shopping) View.VISIBLE else View.GONE
+        }
+
+        binding.buttonClose.setOnClickListener {
+            dismiss()
         }
 
         binding.buttonSaveEntry.setOnClickListener {
@@ -203,36 +209,34 @@ class AddEntryFragment : DialogFragment() {
             }
         }
 
+        // --- Optimistic UI Update ---
+        val prefs = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val newDailyImpact = prefs.getFloat("daily_impact", 0f) + carbonFootprint.toFloat()
+        val newMonthlyImpact = prefs.getFloat("monthly_impact", 0f) + carbonFootprint.toFloat()
+        val newCategoryImpact = prefs.getFloat(category, 0f) + carbonFootprint.toFloat()
+
+        prefs.edit {
+            putFloat("daily_impact", newDailyImpact)
+            putFloat("monthly_impact", newMonthlyImpact)
+            putFloat(category, newCategoryImpact)
+            putLong("last_update_timestamp", System.currentTimeMillis())
+        }
+
+        Toast.makeText(context, "Entry saved!", Toast.LENGTH_SHORT).show()
+        parentFragmentManager.setFragmentResult("entry_saved", Bundle())
+        dismiss()
+
+        // --- Firebase Background Sync ---
         val userId = auth.currentUser?.uid
         if (userId != null) {
             val userDocRef = db.collection("users").document(userId)
-            
-            var newDailyImpact = 0.0
-            var newMonthlyImpact = 0.0
-            var newCategoryImpact = 0.0
-
-            db.runTransaction { transaction ->
-                val snapshot = transaction.get(userDocRef)
-                newDailyImpact = (snapshot.getDouble("daily_impact") ?: 0.0) + carbonFootprint
-                newMonthlyImpact = (snapshot.getDouble("monthly_impact") ?: 0.0) + carbonFootprint
-                newCategoryImpact = (snapshot.getDouble(category) ?: 0.0) + carbonFootprint
-                transaction.update(userDocRef, "daily_impact", newDailyImpact)
-                transaction.update(userDocRef, "monthly_impact", newMonthlyImpact)
-                transaction.update(userDocRef, category, newCategoryImpact)
-                null
-            }.addOnSuccessListener { 
-                Toast.makeText(context, "Entry saved!", Toast.LENGTH_SHORT).show()
-
-                requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE).edit {
-                    putFloat("daily_impact", newDailyImpact.toFloat())
-                    putFloat("monthly_impact", newMonthlyImpact.toFloat())
-                    putFloat(category, newCategoryImpact.toFloat())
-                }
-
-                parentFragmentManager.setFragmentResult("entry_saved", Bundle())
-                dismiss()
-            }.addOnFailureListener { 
-                Toast.makeText(context, "Failed to save entry", Toast.LENGTH_SHORT).show()
+            val updates = mapOf(
+                "daily_impact" to FieldValue.increment(carbonFootprint),
+                "monthly_impact" to FieldValue.increment(carbonFootprint),
+                category to FieldValue.increment(carbonFootprint)
+            )
+            userDocRef.update(updates).addOnFailureListener { e ->
+                Log.w("AddEntryFragment", "Failed to sync impact update to Firebase", e)
             }
         }
     }
